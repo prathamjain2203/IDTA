@@ -65,24 +65,12 @@ public class PaymentController {
 		}
 	}
 
-	static class CreatePaymentResponse {
-		private String clientSecret;
-
-		public CreatePaymentResponse(String clientSecret) {
-			this.clientSecret = clientSecret;
-		}
-
-		public String getClientSecret() {
-			return clientSecret;
-		}
-	}
-
 	// stripe
-	@PostMapping("/create-payment-intent/{userPrimaryKey}/{amount}")
-	public ResponseEntity<Object> createPaymentIntent(@PathVariable String userPrimaryKey, @PathVariable Long amount)
+	@GetMapping("/create-payment-session/{userPrimaryKey}/{coursePrimaryKey}")
+	public RedirectView createSession(@PathVariable String userPrimaryKey, @PathVariable String coursePrimaryKey)
 			throws StripeException {
-		PaymentIntent paymentIntent = paymentService.createPaymentIntent(userPrimaryKey, amount);
-		CreatePaymentResponse paymentResponse = new CreatePaymentResponse(paymentIntent.getClientSecret());
-		return ResponseEntity.ok(paymentResponse);
+		Courses course = coursesServices.getCourse(coursePrimaryKey);
+		Session session = paymentService.createSession(userPrimaryKey, course);
+		return new RedirectView(session.getUrl());
 	}
 }
