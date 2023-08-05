@@ -5,16 +5,16 @@ import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
 import CoursesAvailable from "../lib/CoursesAvailable";
-import { Elements } from "@stripe/react-stripe-js";
-import StripeCheckoutForm from "../components/StripeCheckoutForm/StripeCheckoutForm";
 // import Payment from "../lib/Payment";
+
+// const PAYMENT_BASE_URL = "http://localhost:9000/payment";
+const PAYMENT_BASE_URL = "http://localhost:9000/payment";
 
 const CourseInfo = ({ stripePromise }) => {
   const { courseID } = useParams({});
   // const Razorpay = useRazorpay();
   const navigate = useNavigate();
   const [courseSrc, setCourseSrc] = useState([]);
-  const [clientSecret, setClientSecret] = useState("");
 
   const [purchased, setPurchased] = useState(false);
 
@@ -170,18 +170,6 @@ const CourseInfo = ({ stripePromise }) => {
       alert("Please Login to Continue");
       navigate("/login");
     } else {
-      fetch(
-        `/create-payment-intent/${localStorage.getItem("currentUser")}/${
-          courseSrc?.coursePrice
-        }`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-        }
-      )
-        .then((res) => res.json())
-        .then((data) => setClientSecret(data.clientSecret));
       // generateOrder();
     }
   };
@@ -202,22 +190,9 @@ const CourseInfo = ({ stripePromise }) => {
     getCourseByUserId(localStorage.getItem("currentUser"));
     // eslint-disable-next-line
   }, [courseID]);
-  const appearance = {
-    theme: "stripe",
-  };
-  const options = {
-    clientSecret:
-      "pi_3NbjPtSJmskiVUyU1RKQIxL4_secret_HKsyhWys36ai6xSjl8lq5L8Ss",
-    appearance,
-  };
+
   return (
     <div>
-      {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <StripeCheckoutForm return_url="http://localhost:3000/course/1" />
-        </Elements>
-      )}
-
       <Navbar />
       <Container>
         <section className="about pt-5 mt-5 section" id="about">

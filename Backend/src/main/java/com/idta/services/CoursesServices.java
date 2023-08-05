@@ -2,6 +2,7 @@ package com.idta.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,10 @@ public class CoursesServices {
 
 	public Courses getCourse(String coursePrimaryKey) {
 		return coursesDao.findByCoursePrimaryKey(coursePrimaryKey);
+	}
+
+	public Optional<Courses> getCourseById(Long id) {
+		return coursesDao.findById(id);
 	}
 
 	public List<Courses> purchases(String userPrimaryKey) {

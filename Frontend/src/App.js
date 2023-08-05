@@ -18,10 +18,6 @@ import AdminLogin from "./screens/admin/AdminLogin";
 import JobsApplications from "./screens/admin/JobsApplications";
 import ContactForms from "./screens/admin/ContactForms";
 import Payments from "./screens/admin/Payments";
-import { loadStripe } from "@stripe/stripe-js";
-import { STRIPE_PROMISE } from "./data/config";
-
-const stripePromise = loadStripe(STRIPE_PROMISE);
 
 function App() {
   return (
@@ -39,10 +35,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route
-          path="/course/:courseID"
-          element={<CourseInfo stripePromise={stripePromise} />}
-        />
+        <Route path="/course/:courseID" element={<CourseInfo />} />
         <Route
           path="/membershipform/:membershipPackagePrimaryKey"
           element={<MemberForm />}

@@ -34,14 +34,14 @@ public class Courses {
 	private String courseImageUrl;
 
 	@Column(nullable = false)
-	private int coursePrice;
+	private Long coursePrice;
 
 	public Courses() {
 		super();
 	}
 
 	public Courses(Long id, String coursePrimaryKey, String courseTitle, String courseShortDescription,
-			String courseDescription, String courseStartDate, String courseImageUrl, int coursePrice) {
+			String courseDescription, String courseStartDate, String courseImageUrl, Long coursePrice) {
 		super();
 		this.id = id;
 		this.coursePrimaryKey = coursePrimaryKey;
@@ -54,7 +54,7 @@ public class Courses {
 	}
 
 	public Courses(String coursePrimaryKey, String courseTitle, String courseShortDescription, String courseDescription,
-			String courseStartDate, String courseImageUrl, int coursePrice) {
+			String courseStartDate, String courseImageUrl, Long coursePrice) {
 		super();
 		this.coursePrimaryKey = coursePrimaryKey;
 		this.courseTitle = courseTitle;
@@ -121,11 +121,11 @@ public class Courses {
 		this.courseImageUrl = courseImageUrl;
 	}
 
-	public int getCoursePrice() {
+	public Long getCoursePrice() {
 		return coursePrice;
 	}
 
-	public void setCoursePrice(int coursePrice) {
+	public void setCoursePrice(Long coursePrice) {
 		this.coursePrice = coursePrice;
 	}
 
