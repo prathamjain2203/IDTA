@@ -13,11 +13,13 @@ import Education from "./screens/Education";
 import Careers from "./screens/Careers";
 import JoinUs from "./screens/JoinUs";
 import MemberForm from "./screens/MemberForm";
+
 import Courses from "./screens/Courses";
 import AdminLogin from "./screens/admin/AdminLogin";
 import JobsApplications from "./screens/admin/JobsApplications";
 import ContactForms from "./screens/admin/ContactForms";
 import Payments from "./screens/admin/Payments";
+import { ToastContainer } from "react-bootstrap";
 
 function App() {
   return (

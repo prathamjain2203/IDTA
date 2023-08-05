@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Footer from "../../components/commons/Footer";
-import Jobs from "../../lib/Jobs";
-
+const GET_ALL_PAYMENTS = "http://localhost:9000/payment";
 const Payments = () => {
   const [allPaymentsData, setAllPaymentsData] = useState([]);
 
@@ -26,15 +25,10 @@ const Payments = () => {
       console.log("LoggedIn");
 
       const getAllPayments = async () => {
-        // Jobs.getAllJobs()
-        //   .then((response) => {
-        //     console.log(response.data);
-        //     setJobApplicationData(response.data);
-        //   })
-        //   .catch((error) => {
-        //     alert("Error: " + error);
-        //     console.log("Error: " + error);
-        //   });
+        fetch(GET_ALL_PAYMENTS)
+          .then((response) => response.json())
+          .then((data) => setAllPaymentsData(data))
+          .catch((err) => console.log(err));
       };
       getAllPayments();
     }
@@ -85,11 +79,11 @@ const Payments = () => {
                     <thead>
                       <tr>
                         <th scope="col">Sr. No.</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Number</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Message</th>
-                        <th scope="col">Job Title</th>
+                        <th scope="col">User Id</th>
+                        <th scope="col">Currency</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Receipt</th>
+                        <th scope="col">Payment Status</th>
                       </tr>
                     </thead>
                     {allPaymentsData.length === 0 ? (
@@ -103,13 +97,15 @@ const Payments = () => {
                         <tbody key={index}>
                           <tr>
                             <th className="text-light" scope="row">
-                              {index + 1}
+                              {item?.id}
                             </th>
-                            <td className="text-light">{item.name}</td>
-                            <td className="text-light">{item.number}</td>
-                            <td className="text-light">{item.email}</td>
-                            <td className="text-light">{item.message}</td>
-                            <td className="text-light">{item.jobTitle}</td>
+                            <td className="text-light">
+                              {item.userPrimaryKey}
+                            </td>
+                            <td className="text-light">{item.currency}</td>
+                            <td className="text-light">{item.amount}</td>
+                            <td className="text-light">{item.receipt}</td>
+                            <td className="text-light">{item.paymentStatus}</td>
                           </tr>
                         </tbody>
                       ))

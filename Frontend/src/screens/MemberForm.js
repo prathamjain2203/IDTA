@@ -7,7 +7,8 @@ import Navbar from "../components/commons/Navbar";
 import MembershipPackage from "../lib/MembershipPackage";
 import Payment from "../lib/Payment";
 import Users from "../lib/Users";
-
+// const PAYMENT_BASE_URL = "http://localhost:9000/payment";
+const PAYMENT_BASE_URL = "http://localhost:9000/payment";
 const MemberForm = () => {
   const { membershipPackagePrimaryKey } = useParams({});
   // const Razorpay = useRazorpay();
@@ -30,36 +31,36 @@ const MemberForm = () => {
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [registrationDate, setRegistrationDate] = useState("");
 
-  const updatePaymentStatus = async (paymentInfo) => {
-    Payment.savePayment(paymentInfo)
-      .then((response) => {
-        if (paymentInfo.paymentStatus === "paid") {
-          // membership purchase
-          var todayDate = new Date();
-          var dd = String(todayDate.getDate()).padStart(2, "0");
-          var mm = String(todayDate.getMonth() + 1).padStart(2, "0"); //January is 0!
-          var yyyy = todayDate.getFullYear();
+  // const updatePaymentStatus = async (paymentInfo) => {
+  //   Payment.savePayment(paymentInfo)
+  //     .then((response) => {
+  //       if (paymentInfo.paymentStatus === "paid") {
+  //         // membership purchase
+  //         var todayDate = new Date();
+  //         var dd = String(todayDate.getDate()).padStart(2, "0");
+  //         var mm = String(todayDate.getMonth() + 1).padStart(2, "0"); //January is 0!
+  //         var yyyy = todayDate.getFullYear();
 
-          todayDate = mm + "-" + dd + "-" + yyyy;
+  //         todayDate = mm + "-" + dd + "-" + yyyy;
 
-          const membershipPurchaseInfo = {
-            userPrimaryKey: localStorage.getItem("currentUser"),
-            membershipPackagePrimaryKey:
-              membershipPlan.membershipPackagePrimaryKey,
-            date: todayDate,
-            availableTill: membershipPlan.availableTill,
-          };
-          saveMembershipPurchaseInfo(membershipPurchaseInfo);
-        } else {
-          console.log("Payment Failed");
-          alert("Payment Failed");
-        }
-      })
-      .catch((error) => {
-        console.log("Error:" + error);
-        alert("Error:" + error);
-      });
-  };
+  //         const membershipPurchaseInfo = {
+  //           userPrimaryKey: localStorage.getItem("currentUser"),
+  //           membershipPackagePrimaryKey:
+  //             membershipPlan.membershipPackagePrimaryKey,
+  //           date: todayDate,
+  //           availableTill: membershipPlan.availableTill,
+  //         };
+  //         saveMembershipPurchaseInfo(membershipPurchaseInfo);
+  //       } else {
+  //         console.log("Payment Failed");
+  //         alert("Payment Failed");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error:" + error);
+  //       alert("Error:" + error);
+  //     });
+  // };
 
   const saveMembershipPurchaseInfo = async (membershipPurchaseInfo) => {
     MembershipPackage.savePurchasePackage(membershipPurchaseInfo)
@@ -107,99 +108,99 @@ const MemberForm = () => {
       });
   };
 
-  const generateOrder = async () => {
-    Payment.generateOrder(
-      localStorage.getItem("currentUser"),
-      membershipPlan.membershipPrice
-    )
-      .then((response) => {
-        const paymentResponse = response.data;
-        if (response.data.paymentStatus === "created") {
-          // var options = {
-          //   key: "rzp_test_MhgWsGqXzdSuX0",
-          //   amount: response.data.amount * 100, // amount in paisa
-          //   currency: "INR",
-          //   name: "IDTA Registration: " + membershipPlan.membershipTitle,
-          //   description:
-          //     "Registration Purchase: " + membershipPlan.membershipDescription,
-          //   image:
-          //     "https://idta.netlify.app/static/media/idta-logo.6a40b0502a7e0ad8f73c.png",
-          //   order_id: response.data.orderId,
+  // const generateOrder = async () => {
+  //   Payment.generateOrder(
+  //     localStorage.getItem("currentUser"),
+  //     membershipPlan.membershipPrice
+  //   )
+  //     .then((response) => {
+  //       const paymentResponse = response.data;
+  //       if (response.data.paymentStatus === "created") {
+  //         // var options = {
+  //         //   key: "rzp_test_MhgWsGqXzdSuX0",
+  //         //   amount: response.data.amount * 100, // amount in paisa
+  //         //   currency: "INR",
+  //         //   name: "IDTA Registration: " + membershipPlan.membershipTitle,
+  //         //   description:
+  //         //     "Registration Purchase: " + membershipPlan.membershipDescription,
+  //         //   image:
+  //         //     "https://idta.netlify.app/static/media/idta-logo.6a40b0502a7e0ad8f73c.png",
+  //         //   order_id: response.data.orderId,
 
-          //   handler: function (response) {
-          //     console.log(response.razorpay_payment_id);
-          //     console.log(response.razorpay_order_id);
-          //     console.log(response.razorpay_signature);
-          const paymentInfo = {
-            id: paymentResponse.id,
-            amount: paymentResponse.amount,
-            currency: paymentResponse.currency,
-            receipt: paymentResponse.receipt,
-            orderId: paymentResponse.orderId,
-            userPrimaryKey: paymentResponse.userPrimaryKey,
-            paymentStatus: "paid",
-          };
-          updatePaymentStatus(paymentInfo);
-          //     alert("Congrats Payment Successful");
-          //   },
+  //         //   handler: function (response) {
+  //         //     console.log(response.razorpay_payment_id);
+  //         //     console.log(response.razorpay_order_id);
+  //         //     console.log(response.razorpay_signature);
+  //         const paymentInfo = {
+  //           id: paymentResponse.id,
+  //           amount: paymentResponse.amount,
+  //           currency: paymentResponse.currency,
+  //           receipt: paymentResponse.receipt,
+  //           orderId: paymentResponse.orderId,
+  //           userPrimaryKey: paymentResponse.userPrimaryKey,
+  //           paymentStatus: "paid",
+  //         };
+  //         updatePaymentStatus(paymentInfo);
+  //         //     alert("Congrats Payment Successful");
+  //         //   },
 
-          //   prefill: {
-          //     name: "",
-          //     email: "",
-          //     contact: "",
-          //   },
-          //   notes: {
-          //     address: "IDTA Corporate Office",
-          //   },
-          //   theme: {
-          //     color: "#3399cc",
-          //   },
-          // };
+  //         //   prefill: {
+  //         //     name: "",
+  //         //     email: "",
+  //         //     contact: "",
+  //         //   },
+  //         //   notes: {
+  //         //     address: "IDTA Corporate Office",
+  //         //   },
+  //         //   theme: {
+  //         //     color: "#3399cc",
+  //         //   },
+  //         // };
 
-          // var rzp1 = new Razorpay(options);
+  //         // var rzp1 = new Razorpay(options);
 
-          // rzp1.on("payment.failed", function (response) {
-          //   console.log(response.error.code);
-          //   console.log(response.error.description);
-          //   console.log(response.error.source);
-          //   console.log(response.error.step);
-          //   console.log(response.error.reason);
-          //   console.log(response.error.metadata.order_id);
-          //   console.log(response.error.metadata.payment_id);
-          //   const paymentInfo = {
-          //     id: paymentResponse.id,
-          //     amount: paymentResponse.amount,
-          //     currency: paymentResponse.currency,
-          //     receipt: paymentResponse.receipt,
-          //     orderId: paymentResponse.orderId,
-          //     userPrimaryKey: paymentResponse.userPrimaryKey,
-          //     paymentStatus: "failed",
-          //   };
-          //   updatePaymentStatus(paymentInfo);
-          //   alert("Payment Failure");
-          // });
+  //         // rzp1.on("payment.failed", function (response) {
+  //         //   console.log(response.error.code);
+  //         //   console.log(response.error.description);
+  //         //   console.log(response.error.source);
+  //         //   console.log(response.error.step);
+  //         //   console.log(response.error.reason);
+  //         //   console.log(response.error.metadata.order_id);
+  //         //   console.log(response.error.metadata.payment_id);
+  //         //   const paymentInfo = {
+  //         //     id: paymentResponse.id,
+  //         //     amount: paymentResponse.amount,
+  //         //     currency: paymentResponse.currency,
+  //         //     receipt: paymentResponse.receipt,
+  //         //     orderId: paymentResponse.orderId,
+  //         //     userPrimaryKey: paymentResponse.userPrimaryKey,
+  //         //     paymentStatus: "failed",
+  //         //   };
+  //         //   updatePaymentStatus(paymentInfo);
+  //         //   alert("Payment Failure");
+  //         // });
 
-          // rzp1.open();
-        } else {
-          console.log("Order is Not Created");
-          const paymentInfo = {
-            id: response.data.id,
-            amount: response.data.amount,
-            currency: response.data.currency,
-            receipt: response.data.receipt,
-            orderId: response.data.orderId,
-            userPrimaryKey: response.data.userPrimaryKey,
-            paymentStatus: "failed",
-          };
-          updatePaymentStatus(paymentInfo);
-          alert("Order is Not Created");
-        }
-      })
-      .catch((error) => {
-        console.log("Error: " + error);
-        alert("Error: " + error);
-      });
-  };
+  //         // rzp1.open();
+  //       } else {
+  //         console.log("Order is Not Created");
+  //         const paymentInfo = {
+  //           id: response.data.id,
+  //           amount: response.data.amount,
+  //           currency: response.data.currency,
+  //           receipt: response.data.receipt,
+  //           orderId: response.data.orderId,
+  //           userPrimaryKey: response.data.userPrimaryKey,
+  //           paymentStatus: "failed",
+  //         };
+  //         updatePaymentStatus(paymentInfo);
+  //         alert("Order is Not Created");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error: " + error);
+  //       alert("Error: " + error);
+  //     });
+  // };
 
   const payment = () => {
     if (
@@ -232,23 +233,15 @@ const MemberForm = () => {
       registrationDate === "" ||
       registrationDate === null
     ) {
-      console.log(telNumber);
-      console.log(faxNumber);
-      console.log(labEmail);
-      console.log(website);
-      console.log(registered);
-      console.log(labEstablishedDate);
-      console.log(ownerFullName);
-      console.log(workType);
-      console.log(serviceType);
-      console.log(staffProfile);
-      console.log(staffProfileTotal);
-      console.log(registeredTechnician);
-      console.log(registrationNumber);
-      console.log(registrationDate);
       alert("Please fill the input fields");
     } else {
-      generateOrder();
+      // generateOrder();
+      window.open(
+        `${PAYMENT_BASE_URL}/membership/create-session/${localStorage.getItem(
+          "currentUser"
+        )}/${membershipPackagePrimaryKey}`,
+        "_self"
+      );
     }
   };
 
