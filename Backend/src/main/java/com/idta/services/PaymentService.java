@@ -14,6 +14,7 @@ import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 import com.stripe.param.checkout.SessionCreateParams.LineItem.PriceData.ProductData;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.json.JSONObject;
@@ -122,5 +123,9 @@ public class PaymentService {
 	  payment.setPaymentStatus(session.getPaymentStatus());
 		paymentDao.save(payment);
 		return payment;
+	}
+
+	public List<Payment> getPayments() {
+		return paymentDao.findAll();
 	}
 }

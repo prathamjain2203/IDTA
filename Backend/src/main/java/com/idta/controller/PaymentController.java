@@ -1,5 +1,7 @@
 package com.idta.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -77,5 +79,11 @@ public class PaymentController {
 	public ResponseEntity<Object> updateStatus(@PathVariable Long id) throws StripeException {
 		Payment payment = paymentService.updateStatus(id);
 		return ResponseEntity.ok(payment);
+	}
+
+	@GetMapping()
+	public List<Payment> getPayments() {
+		List<Payment> payments = paymentService.getPayments();
+		return payments;
 	}
 }
