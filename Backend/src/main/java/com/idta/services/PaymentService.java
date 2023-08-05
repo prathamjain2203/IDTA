@@ -14,6 +14,8 @@ import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 import com.stripe.param.checkout.SessionCreateParams.LineItem.PriceData.ProductData;
 
+import java.util.Optional;
+
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,22 +59,24 @@ public class PaymentService {
 	}
 
 	// Stripe
-	// public PaymentIntent createPaymentIntent(String userPrimaryKey, Long amount) throws StripeException {
-	// 	Stripe.apiKey = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
+	// public PaymentIntent createPaymentIntent(String userPrimaryKey, Long amount)
+	// throws StripeException {
+	// Stripe.apiKey =
+	// "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
 
-	// 	PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
-	// 			.setAmount(amount)
-	// 			.setCurrency("usd")
-	// 			.setAutomaticPaymentMethods(
-	// 					PaymentIntentCreateParams.AutomaticPaymentMethods
-	// 							.builder()
-	// 							.setEnabled(true)
-	// 							.build())
-	// 			.build();
+	// PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
+	// .setAmount(amount)
+	// .setCurrency("usd")
+	// .setAutomaticPaymentMethods(
+	// PaymentIntentCreateParams.AutomaticPaymentMethods
+	// .builder()
+	// .setEnabled(true)
+	// .build())
+	// .build();
 
-	// 	// Create a PaymentIntent with the order amount and currency
-	// 	PaymentIntent paymentIntent = PaymentIntent.create(params);
-	// 	return paymentIntent;
+	// // Create a PaymentIntent with the order amount and currency
+	// PaymentIntent paymentIntent = PaymentIntent.create(params);
+	// return paymentIntent;
 	// }
 
 	public Session createSession(String userPrimaryKey, Courses course) throws StripeException {
@@ -112,4 +116,11 @@ public class PaymentService {
 		return session;
 	}
 
+	public Payment updateStatus(Long id) throws StripeException {
+		Payment payment = paymentDao.findById(id).get();
+		Session session = Session.retrieve(payment.getOrderId());
+	  payment.setPaymentStatus(session.getPaymentStatus());
+		paymentDao.save(payment);
+		return payment;
+	}
 }

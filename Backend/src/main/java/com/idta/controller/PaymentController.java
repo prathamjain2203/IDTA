@@ -1,12 +1,12 @@
 package com.idta.controller;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +19,6 @@ import com.idta.services.CoursesServices;
 import com.idta.services.PaymentService;
 import com.razorpay.RazorpayException;
 import com.stripe.exception.StripeException;
-import com.stripe.model.PaymentIntent;
 import com.stripe.model.checkout.Session;
 
 @RestController
@@ -72,5 +71,11 @@ public class PaymentController {
 		Courses course = coursesServices.getCourse(coursePrimaryKey);
 		Session session = paymentService.createSession(userPrimaryKey, course);
 		return new RedirectView(session.getUrl());
+	}
+
+	@PutMapping("/{id}/status")
+	public ResponseEntity<Object> updateStatus(@PathVariable Long id) throws StripeException {
+		Payment payment = paymentService.updateStatus(id);
+		return ResponseEntity.ok(payment);
 	}
 }
