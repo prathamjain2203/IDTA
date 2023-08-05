@@ -10,10 +10,9 @@ import com.razorpay.RazorpayException;
 
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
-import com.stripe.model.PaymentIntent;
 import com.stripe.model.checkout.Session;
-import com.stripe.param.PaymentIntentCreateParams;
 import com.stripe.param.checkout.SessionCreateParams;
+import com.stripe.param.checkout.SessionCreateParams.LineItem.PriceData.ProductData;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,22 +57,59 @@ public class PaymentService {
 	}
 
 	// Stripe
-	public PaymentIntent createPaymentIntent(String userPrimaryKey, Long amount) throws StripeException {
-		Stripe.apiKey = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
+	// public PaymentIntent createPaymentIntent(String userPrimaryKey, Long amount) throws StripeException {
+	// 	Stripe.apiKey = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
 
-		PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
-				.setAmount(amount)
-				.setCurrency("usd")
-				.setAutomaticPaymentMethods(
-						PaymentIntentCreateParams.AutomaticPaymentMethods
-								.builder()
-								.setEnabled(true)
+	// 	PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
+	// 			.setAmount(amount)
+	// 			.setCurrency("usd")
+	// 			.setAutomaticPaymentMethods(
+	// 					PaymentIntentCreateParams.AutomaticPaymentMethods
+	// 							.builder()
+	// 							.setEnabled(true)
+	// 							.build())
+	// 			.build();
+
+	// 	// Create a PaymentIntent with the order amount and currency
+	// 	PaymentIntent paymentIntent = PaymentIntent.create(params);
+	// 	return paymentIntent;
+	// }
+
+	public Session createSession(String userPrimaryKey, Courses course) throws StripeException {
+		Stripe.apiKey = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
+		String currentReceipt = Utilities.generateTransactionId(6);
+		String url = "http://localhost:3000/course/" + course.getId();
+
+		Payment payment = new Payment();
+		payment.setAmount(course.getCoursePrice());
+		payment.setCurrency("INR");
+		payment.setReceipt(currentReceipt);
+		payment.setUserPrimaryKey(userPrimaryKey);
+		payment = paymentDao.save(payment);
+
+		SessionCreateParams params = SessionCreateParams.builder()
+				.setMode(SessionCreateParams.Mode.PAYMENT)
+				.setSuccessUrl(url + "?success=true&pid=" + payment.getId())
+				.setCancelUrl(url + "?canceled=true&pid=" + payment.getId())
+				.addLineItem(
+						SessionCreateParams.LineItem.builder()
+								.setQuantity(1L)
+								.setPriceData(
+										SessionCreateParams.LineItem.PriceData.builder().setCurrency("inr")
+												.setUnitAmount(course.getCoursePrice() * 100)
+												.setProductData(ProductData.builder().setName(course.getCourseTitle())
+														.setDescription(course.getCourseDescription()).addImage(course.getCourseImageUrl()).build())
+												.build())
 								.build())
 				.build();
 
-		// Create a PaymentIntent with the order amount and currency
-		PaymentIntent paymentIntent = PaymentIntent.create(params);
-		return paymentIntent;
+		Session session = Session.create(params);
+
+		payment.setOrderId(session.getId());
+		payment.setPaymentStatus(session.getPaymentStatus());
+		paymentDao.save(payment);
+
+		return session;
 	}
 
 }
