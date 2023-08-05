@@ -3,6 +3,7 @@ package com.idta.services;
 import com.idta.dao.PaymentDao;
 import com.idta.entity.Payment;
 import com.idta.entity.CourseEntity.Courses;
+import com.idta.entity.MemberPackageEntity.MembershipPackage;
 import com.idta.utilities.Utilities;
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
@@ -80,7 +81,7 @@ public class PaymentService {
 	// return paymentIntent;
 	// }
 
-	public Session createSession(String userPrimaryKey, Courses course) throws StripeException {
+	public Session createCourseSession(String userPrimaryKey, Courses course) throws StripeException {
 		Stripe.apiKey = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
 		String currentReceipt = Utilities.generateTransactionId(6);
 		String url = "http://localhost:3000/course/" + course.getId();
@@ -117,10 +118,48 @@ public class PaymentService {
 		return session;
 	}
 
+	public Session createMembershipPackagePaymentSession(String userPrimaryKey, MembershipPackage membershipPackage)
+			throws StripeException {
+		Stripe.apiKey = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
+		String currentReceipt = Utilities.generateTransactionId(6);
+		String url = "http://localhost:3000/memebership";
+
+		Payment payment = new Payment();
+		payment.setAmount(membershipPackage.getMembershipPrice());
+		payment.setCurrency("INR");
+		payment.setReceipt(currentReceipt);
+		payment.setUserPrimaryKey(userPrimaryKey);
+		payment = paymentDao.save(payment);
+
+		SessionCreateParams params = SessionCreateParams.builder()
+				.setMode(SessionCreateParams.Mode.PAYMENT)
+				.setSuccessUrl(url + "?success=true&pid=" + payment.getId())
+				.setCancelUrl(url + "?canceled=true&pid=" + payment.getId())
+				.addLineItem(
+						SessionCreateParams.LineItem.builder()
+								.setQuantity(1L)
+								.setPriceData(
+										SessionCreateParams.LineItem.PriceData.builder().setCurrency("inr")
+												.setUnitAmount(membershipPackage.getMembershipPrice() * 100)
+												.setProductData(ProductData.builder().setName(membershipPackage.getMembershipTitle())
+														.setDescription(membershipPackage.getMembershipDescription()).build())
+												.build())
+								.build())
+				.build();
+
+		Session session = Session.create(params);
+
+		payment.setOrderId(session.getId());
+		payment.setPaymentStatus(session.getPaymentStatus());
+		paymentDao.save(payment);
+
+		return session;
+	}
+
 	public Payment updateStatus(Long id) throws StripeException {
 		Payment payment = paymentDao.findById(id).get();
 		Session session = Session.retrieve(payment.getOrderId());
-	  payment.setPaymentStatus(session.getPaymentStatus());
+		payment.setPaymentStatus(session.getPaymentStatus());
 		paymentDao.save(payment);
 		return payment;
 	}

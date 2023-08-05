@@ -25,7 +25,7 @@ public class MembershipPackage {
 	private String membershipDescription;
 
 	@Column(nullable = false)
-	private Float membershipPrice;
+	private Long membershipPrice;
 
 	@Column(nullable = false)
 	private int availableTill;
@@ -35,7 +35,7 @@ public class MembershipPackage {
 	}
 
 	public MembershipPackage(Long id, String membershipPackagePrimaryKey, String membershipTitle,
-			String membershipDescription, Float membershipPrice, int availableTill) {
+			String membershipDescription, Long membershipPrice, int availableTill) {
 		super();
 		this.id = id;
 		this.membershipPackagePrimaryKey = membershipPackagePrimaryKey;
@@ -46,7 +46,7 @@ public class MembershipPackage {
 	}
 
 	public MembershipPackage(String membershipPackagePrimaryKey, String membershipTitle, String membershipDescription,
-			Float membershipPrice, int availableTill) {
+			Long membershipPrice, int availableTill) {
 		super();
 		this.membershipPackagePrimaryKey = membershipPackagePrimaryKey;
 		this.membershipTitle = membershipTitle;
@@ -87,11 +87,11 @@ public class MembershipPackage {
 		this.membershipDescription = membershipDescription;
 	}
 
-	public Float getMembershipPrice() {
+	public Long getMembershipPrice() {
 		return membershipPrice;
 	}
 
-	public void setMembershipPrice(Float membershipPrice) {
+	public void setMembershipPrice(Long membershipPrice) {
 		this.membershipPrice = membershipPrice;
 	}
 
