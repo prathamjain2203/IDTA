@@ -17,7 +17,9 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.idta.entity.ErrorObject;
 import com.idta.entity.Payment;
 import com.idta.entity.CourseEntity.Courses;
+import com.idta.entity.MemberPackageEntity.MembershipPackage;
 import com.idta.services.CoursesServices;
+import com.idta.services.MembershipPackageService;
 import com.idta.services.PaymentService;
 import com.razorpay.RazorpayException;
 import com.stripe.exception.StripeException;
@@ -31,6 +33,8 @@ public class PaymentController {
 	PaymentService paymentService;
 	@Autowired
 	CoursesServices coursesServices;
+	@Autowired
+	MembershipPackageService membershipPackageService;
 
 	@PostMapping("/generateOrder/{userPrimaryKey}/{amount}")
 	public ResponseEntity<Object> makePayment(@PathVariable String userPrimaryKey, @PathVariable Long amount)
@@ -67,11 +71,21 @@ public class PaymentController {
 	}
 
 	// stripe
-	@GetMapping("/create-payment-session/{userPrimaryKey}/{coursePrimaryKey}")
+	@GetMapping("/course/create-session/{userPrimaryKey}/{coursePrimaryKey}")
 	public RedirectView createSession(@PathVariable String userPrimaryKey, @PathVariable String coursePrimaryKey)
 			throws StripeException {
 		Courses course = coursesServices.getCourse(coursePrimaryKey);
-		Session session = paymentService.createSession(userPrimaryKey, course);
+		Session session = paymentService.createCourseSession(userPrimaryKey, course);
+		return new RedirectView(session.getUrl());
+	}
+
+	@GetMapping("/membership/create-session/{userPrimaryKey}/{membershipPackagePrimaryKey}")
+	public RedirectView createMembershipPackagePaymentSession(@PathVariable String userPrimaryKey,
+			@PathVariable String membershipPackagePrimaryKey)
+			throws StripeException {
+		MembershipPackage membershipPackage = membershipPackageService
+				.findMembershipPackageByMembershipPackagePrimaryKey(membershipPackagePrimaryKey);
+		Session session = paymentService.createMembershipPackagePaymentSession(userPrimaryKey, membershipPackage);
 		return new RedirectView(session.getUrl());
 	}
 
