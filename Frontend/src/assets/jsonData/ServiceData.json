@@ -1,0 +1,47 @@
+[
+  {
+    "logoImg": "https://cdn-icons-png.flaticon.com/512/2083/2083328.png",
+    "title": "Training",
+    "url": "/courses"
+  },
+  {
+    "logoImg": "data:image/png;base64,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",
+    "title": "CPD Programs",
+    "url": "/education"
+  },
+  {
+    "logoImg": "https://i.pinimg.com/originals/43/34/65/4334653e51a39b53df44966fb06f4cf2.png",
+    "title": "Career Info",
+    "url": "/career"
+  },
+  {
+    "logoImg": "https://cdn-icons-png.flaticon.com/512/2936/2936630.png",
+    "title": "Jobs Opportunity ",
+    "url": "/career"
+  },
+  {
+    "logoImg": "https://cdn-icons-png.flaticon.com/512/1466/1466342.png",
+    "title": "Advertisements",
+    "url": "/commingsoon"
+  },
+  {
+    "logoImg": "https://cdn-icons-png.flaticon.com/512/3938/3938393.png",
+    "title": "Expert Support",
+    "url": "/commingsoon"
+  },
+  {
+    "logoImg": "https://cdn-icons-png.flaticon.com/512/3090/3090423.png",
+    "title": "Community Support",
+    "url": "/commingsoon"
+  },
+  {
+    "logoImg": "https://cdn-icons-png.flaticon.com/512/272/272535.png",
+    "title": "Discounts & Benifits",
+    "url": "/commingsoon"
+  },
+  {
+    "logoImg": "https://cdn-icons-png.flaticon.com/512/3534/3534124.png",
+    "title": "Registration and it's Benefits",
+    "url": "/membership"
+  }
+]
