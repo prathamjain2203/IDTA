@@ -104,7 +104,7 @@ public class PaymentService {
 			throws StripeException {
 		Stripe.apiKey = STRIPE_SECRET_KEY;
 		String currentReceipt = Utilities.generateTransactionId(6);
-		String url = "http://localhost:3000/membership";
+		String url = "http://localhost:3000/membershipform/" + membershipPackage.getId();
 
 		Payment payment = new Payment();
 		payment.setAmount(membershipPackage.getMembershipPrice());

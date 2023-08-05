@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Footer from "../../components/commons/Footer";
-import ContactForm from "../../lib/ContactForm";
-
-const ContactForms = () => {
-  const [contactForms, setContactForms] = useState([]);
+const GET_ALL_PAYMENTS = "http://localhost:9000/payment";
+const Payments = () => {
+  const [allPaymentsData, setAllPaymentsData] = useState([]);
 
   const redirectToLogin = () => {
     window.location.replace("adminLogin");
@@ -23,18 +22,15 @@ const ContactForms = () => {
     ) {
       console.log("Please Login");
     } else {
-      const getAllContacts = async () => {
-        ContactForm.getAllContacts()
-          .then((response) => {
-            console.log(response.data);
-            setContactForms(response.data);
-          })
-          .catch((error) => {
-            alert("Error: " + error);
-            console.log("Error: " + error);
-          });
+      console.log("LoggedIn");
+
+      const getAllPayments = async () => {
+        fetch(GET_ALL_PAYMENTS)
+          .then((response) => response.json())
+          .then((data) => setAllPaymentsData(data))
+          .catch((err) => console.log(err));
       };
-      getAllContacts();
+      getAllPayments();
     }
   }, []);
   return (
@@ -57,9 +53,9 @@ const ContactForms = () => {
               <h1 className="fw-bold">Welcome, Admin</h1>
               <a
                 className="btn btn-primary text-decoration-none"
-                href="/jobapplications"
+                href="/contactforms"
               >
-                Job Applications
+                Contact Forms
               </a>
               &nbsp;&nbsp;&nbsp;
               <a
@@ -76,44 +72,40 @@ const ContactForms = () => {
                 Logout
               </button>
               <hr />
-              <h4 className="mt-4 fw-bold">Contact Forms</h4>
+              <h4 className="mt-4 fw-bold">Job Applications</h4>
               <div className="row mt-5">
                 <div className="row">
                   <table className="table">
                     <thead>
                       <tr>
                         <th scope="col">Sr. No.</th>
-                        <th scope="col">Lab Name</th>
-                        <th scope="col">Number</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Website</th>
-                        <th scope="col">Owner Name</th>
+                        <th scope="col">User Id</th>
+                        <th scope="col">Currency</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Receipt</th>
+                        <th scope="col">Payment Status</th>
                       </tr>
                     </thead>
-                    {contactForms.length === 0 ? (
+                    {allPaymentsData.length === 0 ? (
                       <>
                         <h4 className="text-center">
-                          No Contacts are Available
+                          No Payments are Available
                         </h4>
                       </>
                     ) : (
-                      contactForms?.map((contactItem, index) => (
+                      allPaymentsData?.map((item, index) => (
                         <tbody key={index}>
                           <tr>
                             <th className="text-light" scope="row">
-                              {index + 1}
+                              {item?.id}
                             </th>
                             <td className="text-light">
-                              {contactItem.labName}
+                              {item.userPrimaryKey}
                             </td>
-                            <td className="text-light">{contactItem.number}</td>
-                            <td className="text-light">{contactItem.email}</td>
-                            <td className="text-light">
-                              {contactItem.website}
-                            </td>
-                            <td className="text-light">
-                              {contactItem.ownerFullName}
-                            </td>
+                            <td className="text-light">{item.currency}</td>
+                            <td className="text-light">{item.amount}</td>
+                            <td className="text-light">{item.receipt}</td>
+                            <td className="text-light">{item.paymentStatus}</td>
                           </tr>
                         </tbody>
                       ))
@@ -130,4 +122,4 @@ const ContactForms = () => {
   );
 };
 
-export default ContactForms;
+export default Payments;

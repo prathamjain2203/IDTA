@@ -140,14 +140,14 @@ const Dashboard = () => {
                     )}
                   </h6>
                 )}
-                <button
+                {/* <button
                   className="btn btn-primary mx-auto mx-md-0 mx-lg-0 mx-xl-0 mb-3"
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
                   style={{ maxWidth: "300px" }}
                 >
                   Payment
-                </button>
+                </button> */}
                 <hr />
                 <h4 className="mt-4 fw-bold">Current Available Courses</h4>
                 <div className="row">
