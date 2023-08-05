@@ -64,6 +64,13 @@ const JobsApplications = () => {
                 Contact Forms
               </a>
               &nbsp;&nbsp;&nbsp;
+              <a
+                className="btn btn-primary text-decoration-none"
+                href="/allPayments"
+              >
+                Payments
+              </a>
+              &nbsp;&nbsp;&nbsp;
               <button
                 className="btn btn-danger text-decoration-none"
                 onClick={() => logout()}
