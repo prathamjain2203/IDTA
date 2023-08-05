@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 // import useRazorpay from "react-razorpay";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
 import MembershipPackage from "../lib/MembershipPackage";
 import Payment from "../lib/Payment";
 import Users from "../lib/Users";
+import { toast } from "react-toastify";
 // const PAYMENT_BASE_URL = "http://localhost:9000/payment";
 const PAYMENT_BASE_URL = "http://localhost:9000/payment";
 const MemberForm = () => {
@@ -201,7 +202,44 @@ const MemberForm = () => {
   //       alert("Error: " + error);
   //     });
   // };
+  const [searchParams] = useSearchParams();
+  const paymentSuccess = searchParams.get("success");
+  const paymentId = searchParams.get("pid");
+  useEffect(() => {
+    if (paymentSuccess && paymentId) {
+      fetch(`${PAYMENT_BASE_URL}/${paymentId}/status`, {
+        method: "PUT",
+      })
+        .then((response) => {
+          const data = response.json();
+          return data;
+        })
+        .then((data) => {
+          toast.success(data?.paymentStatus);
+          var todayDate = new Date();
+          var dd = String(todayDate.getDate()).padStart(2, "0");
+          var mm = String(todayDate.getMonth() + 1).padStart(2, "0"); //January is 0!
+          var yyyy = todayDate.getFullYear();
 
+          todayDate = mm + "-" + dd + "-" + yyyy;
+          const membershipPurchaseInfo = {
+            userPrimaryKey: localStorage.getItem("currentUser"),
+            membershipPackagePrimaryKey:
+              membershipPlan?.membershipPackagePrimaryKey,
+            date: todayDate,
+            availableTill: membershipPlan.availableTill,
+          };
+          if (
+            localStorage.getItem("currentUser") &&
+            membershipPlan?.membershipPackagePrimaryKey
+          ) {
+            saveMembershipPurchaseInfo(membershipPurchaseInfo);
+            navigate(`/dashboard`);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [membershipPlan?.membershipPackagePrimaryKey]);
   const payment = () => {
     if (
       telNumber === "" ||
@@ -239,7 +277,7 @@ const MemberForm = () => {
       window.open(
         `${PAYMENT_BASE_URL}/membership/create-session/${localStorage.getItem(
           "currentUser"
-        )}/${membershipPackagePrimaryKey}`,
+        )}/${membershipPlan.membershipPackagePrimaryKey}`,
         "_self"
       );
     }

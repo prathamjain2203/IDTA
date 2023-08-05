@@ -15,9 +15,9 @@ const CourseInfo = ({ stripePromise }) => {
   // const Razorpay = useRazorpay();
   const navigate = useNavigate();
   const [courseSrc, setCourseSrc] = useState([]);
-  const [searchParams] = useSearchParams();
   const [purchased, setPurchased] = useState(false);
-
+  
+  const [searchParams] = useSearchParams();
   const paymentSuccess = searchParams.get("success");
   const paymentId = searchParams.get("pid");
   useEffect(() => {

@@ -199,13 +199,15 @@ const Membership = () => {
                     Terms and Conditions.
                   </li>
                   <li>
-                  Registration is only open to individuals based in india only.
+                    Registration is only open to individuals based in india
+                    only.
                   </li>
                   <li>
-                  Registration payments are non-refundable. The subscription is
-                    valid for 12 months from the date of registration. Members
-                    can manage their registration subscription including annual
-                    fee payments in their registration account by logging in.
+                    Registration payments are non-refundable. The subscription
+                    is valid for 12 months from the date of registration.
+                    Members can manage their registration subscription including
+                    annual fee payments in their registration account by logging
+                    in.
                   </li>
                   <li>
                     Professional indemnity insurance, exclusive to I.D.T.A.

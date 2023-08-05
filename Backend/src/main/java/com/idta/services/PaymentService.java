@@ -122,7 +122,7 @@ public class PaymentService {
 			throws StripeException {
 		Stripe.apiKey = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
 		String currentReceipt = Utilities.generateTransactionId(6);
-		String url = "http://localhost:3000/memebership";
+		String url = "http://localhost:3000/membershipform/" + membershipPackage.getId();
 
 		Payment payment = new Payment();
 		payment.setAmount(membershipPackage.getMembershipPrice());
