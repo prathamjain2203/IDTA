@@ -1,5 +1,6 @@
 package com.idta.controller;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,11 +10,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.idta.entity.ErrorObject;
 import com.idta.entity.Payment;
+import com.idta.entity.CourseEntity.Courses;
+import com.idta.services.CoursesServices;
 import com.idta.services.PaymentService;
 import com.razorpay.RazorpayException;
+import com.stripe.exception.StripeException;
+import com.stripe.model.PaymentIntent;
+import com.stripe.model.checkout.Session;
 
 @RestController
 @RequestMapping("/payment")
@@ -21,6 +28,8 @@ public class PaymentController {
 
 	@Autowired
 	PaymentService paymentService;
+	@Autowired
+	CoursesServices coursesServices;
 
 	@PostMapping("/generateOrder/{userPrimaryKey}/{amount}")
 	public ResponseEntity<Object> makePayment(@PathVariable String userPrimaryKey, @PathVariable Long amount)
@@ -54,5 +63,26 @@ public class PaymentController {
 		} else {
 			return ResponseEntity.ok(payment);
 		}
+	}
+
+	static class CreatePaymentResponse {
+		private String clientSecret;
+
+		public CreatePaymentResponse(String clientSecret) {
+			this.clientSecret = clientSecret;
+		}
+
+		public String getClientSecret() {
+			return clientSecret;
+		}
+	}
+
+	// stripe
+	@PostMapping("/create-payment-intent/{userPrimaryKey}/{amount}")
+	public ResponseEntity<Object> createPaymentIntent(@PathVariable String userPrimaryKey, @PathVariable Long amount)
+			throws StripeException {
+		PaymentIntent paymentIntent = paymentService.createPaymentIntent(userPrimaryKey, amount);
+		CreatePaymentResponse paymentResponse = new CreatePaymentResponse(paymentIntent.getClientSecret());
+		return ResponseEntity.ok(paymentResponse);
 	}
 }
