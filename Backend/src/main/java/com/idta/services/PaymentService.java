@@ -16,7 +16,6 @@ import com.stripe.param.checkout.SessionCreateParams;
 import com.stripe.param.checkout.SessionCreateParams.LineItem.PriceData.ProductData;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +29,13 @@ public class PaymentService {
 	@Autowired
 	CoursesServices coursesServices;
 
+	private static final String STRIPE_SECRET_KEY = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
+
 	private static final String SECRET_ID = "rzp_test_MhgWsGqXzdSuX0";
 	private static final String SECRET_KEY = "JOC7SY9AzVpNZip9KCrMYbyF";
 	private static final String CURRENCY = "INR";
 
+	
 	public Payment generateOrder(String userPrimaryKey, Long amount) throws RazorpayException {
 		RazorpayClient razorpayClient = new RazorpayClient(SECRET_ID, SECRET_KEY);
 		String currentRecipt = Utilities.generateTransactionId(6);
@@ -61,28 +63,8 @@ public class PaymentService {
 	}
 
 	// Stripe
-	// public PaymentIntent createPaymentIntent(String userPrimaryKey, Long amount)
-	// throws StripeException {
-	// Stripe.apiKey =
-	// "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
-
-	// PaymentIntentCreateParams params = PaymentIntentCreateParams.builder()
-	// .setAmount(amount)
-	// .setCurrency("usd")
-	// .setAutomaticPaymentMethods(
-	// PaymentIntentCreateParams.AutomaticPaymentMethods
-	// .builder()
-	// .setEnabled(true)
-	// .build())
-	// .build();
-
-	// // Create a PaymentIntent with the order amount and currency
-	// PaymentIntent paymentIntent = PaymentIntent.create(params);
-	// return paymentIntent;
-	// }
-
 	public Session createCourseSession(String userPrimaryKey, Courses course) throws StripeException {
-		Stripe.apiKey = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
+		Stripe.apiKey = STRIPE_SECRET_KEY;
 		String currentReceipt = Utilities.generateTransactionId(6);
 		String url = "http://localhost:3000/course/" + course.getId();
 
@@ -120,9 +102,9 @@ public class PaymentService {
 
 	public Session createMembershipPackagePaymentSession(String userPrimaryKey, MembershipPackage membershipPackage)
 			throws StripeException {
-		Stripe.apiKey = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
+		Stripe.apiKey = STRIPE_SECRET_KEY;
 		String currentReceipt = Utilities.generateTransactionId(6);
-		String url = "http://localhost:3000/memebership";
+		String url = "http://localhost:3000/membership";
 
 		Payment payment = new Payment();
 		payment.setAmount(membershipPackage.getMembershipPrice());
