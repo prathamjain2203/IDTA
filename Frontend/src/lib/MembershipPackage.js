@@ -1,11 +1,13 @@
 import axios from "axios";
 
-// const MEMBERSHIP_PACKAGE_BASE_URL = "https://idtaapi.up.railway.app/membership/";
+const MEMBERSHIP_PACKAGE_BASE_URL =
+  "https://springboot-java-production-daec.up.railway.app/membership/";
 // const MEMBERSHIP_PACKAGE_PURCHASE_BASE_URL =
 //   "https://idtaapi.up.railway.app/membershipPackagePurchase/";
-const MEMBERSHIP_PACKAGE_BASE_URL = "http://localhost:9000/membership/";
 const MEMBERSHIP_PACKAGE_PURCHASE_BASE_URL =
-  "http://localhost:9000/membershipPackagePurchase/";
+  "https://springboot-java-production-daec.up.railway.app/membershipPackagePurchase/";
+// const MEMBERSHIP_PACKAGE_PURCHASE_BASE_URL =
+//   "http://localhost:9000/membershipPackagePurchase/";
 
 class MembershipPackage {
   async getAllMembershipPackages() {

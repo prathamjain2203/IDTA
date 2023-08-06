@@ -1,7 +1,8 @@
 import axios from "axios";
 
-// const COURSES_BASE_URL = "https://idtaapi.up.railway.app/courses/";
-const COURSES_BASE_URL = "http://localhost:9000/courses/";
+const COURSES_BASE_URL =
+  "https://springboot-java-production-daec.up.railway.app/courses/";
+// const COURSES_BASE_URL = "http://localhost:9000/courses/";
 
 class CoursesAvailable {
   async getAllCourses() {

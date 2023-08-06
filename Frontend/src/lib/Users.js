@@ -1,7 +1,8 @@
 import axios from "axios";
 
-// const USER_BASE_URL = "https://idtaapi.up.railway.app/user/";
-const USER_BASE_URL = "http://localhost:9000/user/";
+const USER_BASE_URL =
+  "https://springboot-java-production-daec.up.railway.app/user/";
+// const USER_BASE_URL = "http://localhost:9000/user/";
 
 class Users {
   async login(userInfo) {

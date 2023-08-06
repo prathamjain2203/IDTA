@@ -8,8 +8,9 @@ import MembershipPackage from "../lib/MembershipPackage";
 import Payment from "../lib/Payment";
 import Users from "../lib/Users";
 import { toast } from "react-toastify";
+const PAYMENT_BASE_URL =
+  "https://springboot-java-production-daec.up.railway.app/payment";
 // const PAYMENT_BASE_URL = "http://localhost:9000/payment";
-const PAYMENT_BASE_URL = "http://localhost:9000/payment";
 const MemberForm = () => {
   const { membershipPackagePrimaryKey } = useParams({});
   // const Razorpay = useRazorpay();

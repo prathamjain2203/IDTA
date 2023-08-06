@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Footer from "../../components/commons/Footer";
-const GET_ALL_PAYMENTS = "http://localhost:9000/payment";
+const GET_ALL_PAYMENTS =
+  "https://springboot-java-production-daec.up.railway.app/payment";
 const Payments = () => {
   const [allPaymentsData, setAllPaymentsData] = useState([]);
 

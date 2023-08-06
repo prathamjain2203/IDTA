@@ -16,6 +16,7 @@ import MemberForm from "./screens/MemberForm";
 
 import Courses from "./screens/Courses";
 import AdminLogin from "./screens/admin/AdminLogin";
+import "./App.css";
 import JobsApplications from "./screens/admin/JobsApplications";
 import ContactForms from "./screens/admin/ContactForms";
 import Payments from "./screens/admin/Payments";
