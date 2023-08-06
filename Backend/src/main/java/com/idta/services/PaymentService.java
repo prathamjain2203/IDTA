@@ -30,12 +30,12 @@ public class PaymentService {
 	CoursesServices coursesServices;
 
 	private static final String STRIPE_SECRET_KEY = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
+	private static final String REDIRECT_BASE_URL = "https://idtaproduction.up.railway.app";
 
 	private static final String SECRET_ID = "rzp_test_MhgWsGqXzdSuX0";
 	private static final String SECRET_KEY = "JOC7SY9AzVpNZip9KCrMYbyF";
 	private static final String CURRENCY = "INR";
 
-	
 	public Payment generateOrder(String userPrimaryKey, Long amount) throws RazorpayException {
 		RazorpayClient razorpayClient = new RazorpayClient(SECRET_ID, SECRET_KEY);
 		String currentRecipt = Utilities.generateTransactionId(6);
@@ -66,7 +66,7 @@ public class PaymentService {
 	public Session createCourseSession(String userPrimaryKey, Courses course) throws StripeException {
 		Stripe.apiKey = STRIPE_SECRET_KEY;
 		String currentReceipt = Utilities.generateTransactionId(6);
-		String url = "http://localhost:3000/course/" + course.getId();
+		String url = REDIRECT_BASE_URL + "/course/" + course.getId();
 
 		Payment payment = new Payment();
 		payment.setAmount(course.getCoursePrice());
@@ -104,7 +104,7 @@ public class PaymentService {
 			throws StripeException {
 		Stripe.apiKey = STRIPE_SECRET_KEY;
 		String currentReceipt = Utilities.generateTransactionId(6);
-		String url = "http://localhost:3000/membershipform/" + membershipPackage.getId();
+		String url = REDIRECT_BASE_URL + "/membershipform/" + membershipPackage.getId();
 
 		Payment payment = new Payment();
 		payment.setAmount(membershipPackage.getMembershipPrice());
