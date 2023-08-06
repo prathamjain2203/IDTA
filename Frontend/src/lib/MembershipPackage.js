@@ -1,6 +1,7 @@
 import axios from "axios";
 
-// const MEMBERSHIP_PACKAGE_BASE_URL = "https://idtaapi.up.railway.app/membership/";
+const MEMBERSHIP_PACKAGE_BASE_URL =
+  "https://springboot-java-production-daec.up.railway.app/membership/";
 // const MEMBERSHIP_PACKAGE_PURCHASE_BASE_URL =
 //   "https://idtaapi.up.railway.app/membershipPackagePurchase/";
 const MEMBERSHIP_PACKAGE_PURCHASE_BASE_URL =
