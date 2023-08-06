@@ -2,4 +2,7 @@
   .director-container {
     padding: 20px !important;
   }
+  .board-title {
+    margin: 60px 0;
+  }
 }

@@ -60,7 +60,7 @@ const AboutTeam = () => {
       <Navbar />
       <section className="pt-4 section pb-0" id="about">
         <div style={{ padding: "100px" }} className="row director-container">
-          <h2>Board of Directors</h2>
+          <h2 className="board-title">Board of Directors</h2>
           {TeamData?.map((teamItem, index) => (
             <div key={index} className="col-md-8 col-lg-6 col-xl-6 my-3">
               <Card item={teamItem} />
