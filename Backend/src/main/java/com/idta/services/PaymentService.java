@@ -66,7 +66,7 @@ public class PaymentService {
 	public Session createCourseSession(String userPrimaryKey, Courses course) throws StripeException {
 		Stripe.apiKey = STRIPE_SECRET_KEY;
 		String currentReceipt = Utilities.generateTransactionId(6);
-		String url = REDIRECT_BASE_URL + "/course/" + course.getId();
+		String url = REDIRECT_BASE_URL + "/course/" + course.getCoursePrimaryKey();
 
 		Payment payment = new Payment();
 		payment.setAmount(course.getCoursePrice());
@@ -104,7 +104,7 @@ public class PaymentService {
 			throws StripeException {
 		Stripe.apiKey = STRIPE_SECRET_KEY;
 		String currentReceipt = Utilities.generateTransactionId(6);
-		String url = REDIRECT_BASE_URL + "/membershipform/" + membershipPackage.getId();
+		String url = REDIRECT_BASE_URL + "/membershipform/" + membershipPackage.getMembershipPackagePrimaryKey();
 
 		Payment payment = new Payment();
 		payment.setAmount(membershipPackage.getMembershipPrice());
