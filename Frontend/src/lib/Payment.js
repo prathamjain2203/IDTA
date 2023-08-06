@@ -1,7 +1,8 @@
 import axios from "axios";
 
-// const PAYMENT_BASE_URL = "https://idtaapi.up.railway.app/payment/";
-const PAYMENT_BASE_URL = "http://localhost:9000/payment/";
+const PAYMENT_BASE_URL =
+  "https://springboot-java-production-daec.up.railway.app/payment/";
+// const PAYMENT_BASE_URL = "http://localhost:9000/payment/";
 
 class Payment {
   async generateOrder(userPrimaryKey, amount) {

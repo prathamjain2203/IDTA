@@ -7,8 +7,9 @@ import Navbar from "../components/commons/Navbar";
 import { toast } from "react-toastify";
 import CoursesAvailable from "../lib/CoursesAvailable";
 // import Payment from "../lib/Payment";
+const PAYMENT_BASE_URL =
+  "https://springboot-java-production-daec.up.railway.app/payment";
 // const PAYMENT_BASE_URL = "http://localhost:9000/payment";
-const PAYMENT_BASE_URL = "http://localhost:9000/payment";
 
 const CourseInfo = ({ stripePromise }) => {
   const { courseID } = useParams({});
@@ -16,7 +17,7 @@ const CourseInfo = ({ stripePromise }) => {
   const navigate = useNavigate();
   const [courseSrc, setCourseSrc] = useState([]);
   const [purchased, setPurchased] = useState(false);
-  
+
   const [searchParams] = useSearchParams();
   const paymentSuccess = searchParams.get("success");
   const paymentId = searchParams.get("pid");
