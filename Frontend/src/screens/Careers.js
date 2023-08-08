@@ -250,7 +250,7 @@ const Careers = () => {
               }}
             />
           </div>
-          <div
+          {/* <div
             className="col-12 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5"
             style={{
               background: "#090909",
@@ -295,7 +295,7 @@ const Careers = () => {
                 )}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div
           className="modal fade"
