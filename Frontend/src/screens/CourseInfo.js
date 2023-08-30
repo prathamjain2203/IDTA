@@ -56,7 +56,7 @@ const CourseInfo = ({ stripePromise }) => {
       })
       .catch((error) => {
         console.log("Error: " + error);
-        alert("Error: " + error);
+        toast.error("Error: " + error);
       });
   };
 
@@ -72,7 +72,7 @@ const CourseInfo = ({ stripePromise }) => {
       })
       .catch((error) => {
         console.log("Error: " + error);
-        alert("Error: " + error);
+        toast.error("Error: " + error);
       });
   };
 
@@ -82,7 +82,7 @@ const CourseInfo = ({ stripePromise }) => {
       localStorage.getItem("currentUser") === null ||
       localStorage.getItem("currentUser") === undefined
     ) {
-      alert("Please Login to Continue");
+      toast.error("Please Login to Continue");
       navigate("/login");
     } else {
       window.open(
@@ -102,7 +102,7 @@ const CourseInfo = ({ stripePromise }) => {
         })
         .catch((error) => {
           console.log("Error: " + error);
-          alert("Error: " + error);
+          toast.error("Error: " + error);
         });
     };
 

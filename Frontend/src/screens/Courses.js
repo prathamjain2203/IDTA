@@ -5,6 +5,7 @@ import Navbar from "../components/commons/Navbar";
 import { Link } from "react-router-dom";
 import { BoxArrowUpRight } from "react-bootstrap-icons";
 import CoursesAvailable from "../lib/CoursesAvailable";
+import { toast } from "react-toastify";
 
 const Courses = () => {
   const [courseData, setCourseData] = useState([]);
@@ -16,7 +17,7 @@ const Courses = () => {
       })
       .catch((error) => {
         console.log("Error: " + error);
-        alert("Error: " + error);
+        toast.error("Error: " + error);
       });
   };
 
@@ -29,7 +30,8 @@ const Courses = () => {
       <Navbar />
       <Container>
         <section className="about pt-5 mt-5 section" id="about">
-          <div className="row mt-5">
+          <h3 style={{textAlign:'center'}}>Coming Soon</h3>
+          {/* <div className="row mt-5">
             <h1 className="fw-bold">Currently Available Courses</h1>
             <a
               className="text-light text-decoration-none mb-3"
@@ -69,7 +71,7 @@ const Courses = () => {
                           {/* <p className="text-decoration-none text-dark text-center">
                             Book Your Place Now!
                           </p> */}
-                          <p className="text-decoration-none text-dark text-center">
+                          {/* <p className="text-decoration-none text-dark text-center">
                             Comming Soon
                           </p>
                         </div>
@@ -78,8 +80,8 @@ const Courses = () => {
                   </div>
                 ))
               )}
-            </div>
-          </div>
+            </div> */}
+          {/* </div>  */}
         </section>
       </Container>
       <Footer />

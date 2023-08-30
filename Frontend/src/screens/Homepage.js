@@ -4,6 +4,7 @@ import Footer from "../components/commons/Footer";
 import ContactForm from "../lib/ContactForm";
 import Img1 from "../assets/img/img (1).jpg";
 import Img2 from "../assets/img/img (2).jpg";
+import { toast } from "react-toastify";
 
 const Homepage = () => {
   const [labName, setLabName] = useState("");
@@ -16,11 +17,11 @@ const Homepage = () => {
     ContactForm.saveContact(contactInfo)
       .then((response) => {
         console.log(response.data);
-        alert("Contact Info Saved");
+        toast.error("Contact Info Saved");
       })
       .catch((error) => {
         console.log("Error: " + error);
-        alert("Error: " + error);
+        toast.error("Error: " + error);
       });
   };
 
@@ -37,7 +38,7 @@ const Homepage = () => {
       ownerFullName === "" ||
       ownerFullName === null
     ) {
-      alert("Please fill the input fields");
+      toast.error("Please fill the input fields");
     } else {
       const contactInfo = {
         labName: labName,
@@ -58,8 +59,8 @@ const Homepage = () => {
         id="hero"
         // style={{ minHeight: "80vh" }}
       >
-        <div className="row mt-5 m-0 pb-0 mb-0">
-          <div className="col-md-6 col-lg-6 col-xl-6 mb-0 mb-md-0 mb-lg-0 mb-xl-0 d-flex align-items-center p-0">
+        <div className=" mt-5 m-0 pb-0 mb-0">
+          <div className="col-md-6 col-lg-6 col-xl-6 mb-0 mb-md-0 mb-lg-0 mb-xl-0 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5 w-100">
             <div
               id="carouselExampleControls"
               className="carousel slide w-100 h-100"
@@ -95,13 +96,13 @@ const Homepage = () => {
                     className="text-center h-100 w-100 p-2 p-md-5 p-lg-5 p-xl-5 d-flex align-items-center"
                     style={{ background: "rgba(0, 0, 0, 0.6)" }}
                   >
-                    <div className="container py-5">
+                    <div className="container py-5 d-flex align-items-center justify-content-center">
                       <p
                         className="mt-3"
                         style={{
                           fontSize: "22px",
                         }}
-                      ></p>
+                      >SAMPLE TEST 2</p>
                     </div>
                   </div>
                 </div>
@@ -118,13 +119,13 @@ const Homepage = () => {
                     className="text-center h-100 w-100 p-2 p-md-5 p-lg-5 p-xl-5 d-flex align-items-center"
                     style={{ background: "rgba(0, 0, 0, 0.6)" }}
                   >
-                    <div className="container py-5">
+                    <div className="container py-5 d-flex align-items-center justify-content-center">
                       <p
                         className="mt-3"
                         style={{
                           fontSize: "22px",
                         }}
-                      ></p>
+                      >SAMPLE TEST</p>
                     </div>
                   </div>
                 </div>

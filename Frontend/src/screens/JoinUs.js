@@ -5,6 +5,7 @@ import Navbar from "../components/commons/Navbar";
 import ContactForm from "../lib/ContactForm";
 import Img3 from "../assets/img/img (3).jpg";
 import Img4 from "../assets/img/img (4).jpg";
+import { toast } from "react-toastify";
 
 const JoinUs = () => {
   const [labName, setLabName] = useState("");
@@ -17,11 +18,11 @@ const JoinUs = () => {
     ContactForm.saveContact(contactInfo)
       .then((response) => {
         console.log(response.data);
-        alert("Contact Info Saved");
+        toast.error("Contact Info Saved");
       })
       .catch((error) => {
         console.log("Error: " + error);
-        alert("Error: " + error);
+        toast.error("Error: " + error);
       });
   };
 
@@ -38,7 +39,7 @@ const JoinUs = () => {
       ownerFullName === "" ||
       ownerFullName === null
     ) {
-      alert("Please fill the input fields");
+      toast.error("Please fill the input fields");
     } else {
       const contactInfo = {
         labName: labName,

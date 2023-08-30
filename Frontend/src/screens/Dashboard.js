@@ -7,6 +7,7 @@ import MembershipPackage from "../lib/MembershipPackage";
 import CoursesAvailable from "../lib/CoursesAvailable";
 import { Link } from "react-router-dom";
 import QrCode from "../assets/img/phonepay-qr-code.png";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const [currentUser, setCurrentUser] = useState("");
@@ -21,7 +22,7 @@ const Dashboard = () => {
       })
       .catch((error) => {
         console.log("Error logging in:", error);
-        alert("Error logging in:" + error);
+      toast.error("Error logging in:" + error);
       });
   };
 
@@ -74,7 +75,7 @@ const Dashboard = () => {
       })
       .catch((error) => {
         console.log("Error: " + error);
-        alert("Error: " + error);
+        toast.error("Error: " + error);
       });
   };
 
@@ -96,7 +97,7 @@ const Dashboard = () => {
           })
           .catch((error) => {
             console.log("Error: " + error);
-            alert("Error: " + error);
+            toast.error("Error: " + error);
           });
       };
 

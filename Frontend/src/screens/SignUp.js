@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Users from "../lib/Users";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const SignUp = () => {
       password === null ||
       password === undefined
     ) {
-      alert("Empty Input Fields");
+      toast.error("Empty Input Fields");
     } else {
       const userInfo = {
         fullname: fullname,
@@ -33,12 +34,12 @@ const SignUp = () => {
           console.log("Registration in successfully");
           console.log(response.data.fullname);
           localStorage.setItem("userRegistered", "registered");
-          alert("Registration in successfully");
+          toast.error("Registration in successfully");
           navigate("/login");
         })
         .catch((error) => {
           console.log("Error logging in:", error);
-          alert("Error logging in:" + error);
+          toast.error("Error logging in:" + error);
         });
     }
   };

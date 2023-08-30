@@ -4,6 +4,7 @@ import Navbar from "../components/commons/Navbar";
 import AboutTeamImg1 from "../assets/img/about-img-1.png";
 import AboutTeamImg2 from "../assets/img/about-img-2.png";
 import AboutTeamImg3 from "../assets/img/about-img-3.png";
+import vision2 from "../assets/img/vision2.jpg";
 
 const About = () => {
   const [currentTab, setCurrentTab] = useState("vision");
@@ -132,7 +133,7 @@ const About = () => {
                     <div className="col-md-6 col-lg-6 col-xl-6">
                       <img
                         className="img-fluid mx-auto w-100 h-100"
-                        src="https://thumbs.dreamstime.com/b/vision-bulb-word-cloud-business-concept-60193290.jpg"
+                        src="https://images.squarespace-cdn.com/content/v1/583ed05c59cc68a8c3e45c0f/1482074282081-KQBCRLEWPLWTJKWBCR4X/vision.png?format=750w"
                         alt="logo"
                         style={{
                           maxWidth: "100%",
@@ -176,7 +177,7 @@ const About = () => {
                     <div className="col-md-6 col-lg-6 col-xl-6">
                       <img
                         className="img-fluid mx-auto w-100 h-100"
-                        src="https://life.futuregenerali.in/Content/images/about/mission.jpg"
+                        src="https://t4.ftcdn.net/jpg/00/96/54/53/360_F_96545306_cX6N4Fv2TTVRMKahA3aoCvxlUOGm2KkV.jpg"
                         alt="logo"
                         style={{
                           maxWidth: "100%",
@@ -188,12 +189,12 @@ const About = () => {
                     </div>
                     <div className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center">
                       <p style={{ fontSize: "22px" }}>
-                        
                         <p>
-                          
-                        Indian Dental Technician
-Associations integrated education and communication for Dental Technician's and Laboratories to successfully operate with a competitive edge
-                          </p>
+                          Indian Dental Technician Associations integrated
+                          education and communication for Dental Technician's
+                          and Laboratories to successfully operate with a
+                          competitive edge
+                        </p>
                       </p>
                     </div>
                   </div>
@@ -235,63 +236,62 @@ Associations integrated education and communication for Dental Technician's and 
             </div>
           </div>
           <div
-            className="col-md-6 col-lg-6 col-xl-6 my-0 p-0 my-0"
+            className="col-12 my-0 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5 my-0"
             style={{
               background: "#090909",
             }}
           >
-            <div className="text-center">
-              <img
-                className="img-fluid w-100 h-100 py-0 my-0"
-                src={AboutTeamImg2}
-                alt="logo"
-                style={{
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center",
-                }}
-              />
-            </div>
-          </div>
-          <div
-            className="col-md-6 col-lg-6 col-xl-6 my-0 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5"
-            style={{
-              background: "#090909",
-            }}
-          >
-            <div className="container">
-              <div className="text-light">
-                <h1>IDTA Future Projects</h1>
-                <ol>
-                  <li>
-                    Our primary aim is to support the professional development
-                    of dental technician and students.
-                  </li>
-                  <li>
-                    We are planning to open semi-autonomous branches in all over
-                    the india. Technician can access to technical knowledge in
-                    the form of exclusive online, resources, journals and
-                    master-classes.
-                  </li>
-                  <li>
-                    I.D.T.A will support with career development, lifelong
-                    learning, CPD requirements and training.
-                  </li>
-                  <li>
-                    Access to exclusive discounted packages plus free CPD and
-                    24-hour helpline for all members.
-                  </li>
-                  <li>
-                    To mix and gain support from other experienced dental
-                    technologists. I.D.T.A. is going to run by Dental technician
-                    for dental technicians.
-                  </li>
-                  <li>
-                    To promote your profession in society and raise awareness of
-                    key points.
-                  </li>
-                </ol>
+            <div className="container py-0 my-0">
+              <div className="w-100 mt-3 text-light">
+                <div className="row">
+                  <div className="col-md-6 col-lg-6 col-xl-6">
+                    <img
+                      className="img-fluid mx-auto w-100 h-100"
+                      src={vision2}
+                      alt="logo"
+                      style={{
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center",
+                      }}
+                    />
+                  </div>
+                  <div className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center">
+                    <div className="text-light">
+                      <h1>IDTA Future Projects</h1>
+                      <ol>
+                        <li>
+                          Our primary aim is to support the professional
+                          development of dental technician and students.
+                        </li>
+                        <li>
+                          We are planning to open semi-autonomous branches in
+                          all over the india. Technician can access to technical
+                          knowledge in the form of exclusive online, resources,
+                          journals and master-classes.
+                        </li>
+                        <li>
+                          I.D.T.A will support with career development, lifelong
+                          learning, CPD requirements and training.
+                        </li>
+                        <li>
+                          Access to exclusive discounted packages plus free CPD
+                          and 24-hour helpline for all members.
+                        </li>
+                        <li>
+                          To mix and gain support from other experienced dental
+                          technologists. I.D.T.A. is going to run by Dental
+                          technician for dental technicians.
+                        </li>
+                        <li>
+                          To promote your profession in society and raise
+                          awareness of key points.
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

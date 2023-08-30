@@ -165,9 +165,9 @@ const Navbar = () => {
                           : "nav-link nav-a-hover dropdown-item w-100"
                       }
                       style={{ background: "none" }}
-                      // href="/courses"
+                      href="/courses"
                     >
-                      Coming Soon
+                      Courses
                     </a>
                   </li>
                 </ul>
@@ -181,7 +181,7 @@ const Navbar = () => {
                   }
                   href="/career"
                 >
-                  Careers
+                  Jobs
                 </a>
               </li>
               <li className="nav-item mx-3">

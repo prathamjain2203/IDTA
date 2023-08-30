@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Footer from "../../components/commons/Footer";
 import Jobs from "../../lib/Jobs";
+import { toast } from "react-toastify";
 
 const JobsApplications = () => {
   const [jobApplicationData, setJobApplicationData] = useState([]);
@@ -32,7 +33,7 @@ const JobsApplications = () => {
             setJobApplicationData(response.data);
           })
           .catch((error) => {
-            alert("Error: " + error);
+            toast.error("Error: " + error);
             console.log("Error: " + error);
           });
       };

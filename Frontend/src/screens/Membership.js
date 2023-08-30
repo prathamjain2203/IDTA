@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import MembershipLogo from "../assets/img/membership.png";
+import MembershipLogo from "../assets/img/register.png";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
 import MembershipPackage from "../lib/MembershipPackage";
+import { toast } from "react-toastify";
 
 const Membership = () => {
   const [membershipData, setMembershipData] = useState();
@@ -16,11 +17,11 @@ const Membership = () => {
       localStorage.getItem("currentUser") === null ||
       localStorage.getItem("currentUser") === undefined
     ) {
-      alert("Please Login to Continue");
+      toast.error("Please Login to Continue");
       navigate("/login");
     } else {
       if (membershipPurchased) {
-        alert("You already have purchased the registration");
+        toast.error("You already have purchased the registration");
       } else {
         navigate("/membershipform/" + membershipPackagePrimaryKey);
       }
@@ -34,7 +35,7 @@ const Membership = () => {
       })
       .catch((error) => {
         console.log("Error:", error);
-        alert("Error:" + error);
+        toast.error("Error:" + error);
       });
   };
 
@@ -51,7 +52,7 @@ const Membership = () => {
       .catch((error) => {
         setMembershipPurchased(false);
         console.log("Error: " + error);
-        alert("Error: " + error);
+        toast.error("Error: " + error);
       });
   };
 
@@ -128,11 +129,11 @@ const Membership = () => {
                           membershipItem.id === 1
                             ? "#102847"
                             : membershipItem.id === 2
-                            ? "#69A29D"
+                            ? "#7CB9E8"
                             : membershipItem.id === 3
-                            ? "#52555E"
+                            ? "#00308F"
                             : membershipItem.id === 4
-                            ? "#C5955C"
+                            ? "#0076CE"
                             : "#090909",
                         minHeight: "170px",
                         borderRadius: "0",

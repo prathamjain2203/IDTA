@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Users from "../lib/Users";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Login = () => {
       password === null ||
       password === undefined
     ) {
-      alert("Empty Input Fields");
+      toast.error("Empty Input Fields");
     } else {
       const userInfo = {
         email: email,
@@ -42,7 +43,7 @@ const Login = () => {
         })
         .catch((error) => {
           console.log("Error logging in:", error);
-          alert("Error logging in:" + error);
+          toast.error("Error logging in:" + error);
         });
     }
   };

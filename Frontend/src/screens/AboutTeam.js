@@ -4,11 +4,20 @@ import React from "react";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
 import TeamData from "../assets/jsonData/teamInfo.json";
+import board1 from "../assets/img/board1";
+import board2 from "../assets/img/board2";
+import board3 from "../assets/img/board3";
+import board4 from "../assets/img/board4";
 
-const Card = ({ item }) => {
+const Images = [board1, board2, board3, board4];
+const Card = ({ item, image }) => {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr" }}>
-      <img src={item?.profile} alt="pic" />
+    <div
+      style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "10px" }}
+    >
+      <div style={{ width: "200px", objectFit: "contain", height: "auto" }}>
+        <img style={{ width: "100%", height: "100%" }} src={image} alt="pic" />
+      </div>
       <div>
         <p
           style={{
@@ -28,7 +37,7 @@ const Card = ({ item }) => {
             margin: "10px 0",
           }}
         ></div>
-        <div style={{ display: "flex", justifyContent: "end" }}>
+        <div style={{ display: "flex" }}>
           <span style={{ fontWeight: "bold" }}>{item?.position}</span>
         </div>
         <div>
@@ -63,7 +72,7 @@ const AboutTeam = () => {
           <h2 className="board-title">Board of Directors</h2>
           {TeamData?.map((teamItem, index) => (
             <div key={index} className="col-md-8 col-lg-6 col-xl-6 my-3">
-              <Card item={teamItem} />
+              <Card image={Images?.[index]} item={teamItem} />
             </div>
 
             // <div className="row mt-5 m-0" key={index}>

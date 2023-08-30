@@ -133,7 +133,7 @@ const Services = () => {
             }}
           >
             <div className="container py-5">
-              <h1 className="fw-bold">Support</h1>
+              <h1 className="fw-bold">Benefits</h1>
               <ol className="mt-3">
                 <li>
                   IDTA work with students to provide a seamless transaction from

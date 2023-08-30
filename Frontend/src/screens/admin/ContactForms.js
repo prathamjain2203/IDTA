@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Footer from "../../components/commons/Footer";
 import ContactForm from "../../lib/ContactForm";
+import { toast } from "react-toastify";
 
 const ContactForms = () => {
   const [contactForms, setContactForms] = useState([]);
@@ -30,7 +31,7 @@ const ContactForms = () => {
             setContactForms(response.data);
           })
           .catch((error) => {
-            alert("Error: " + error);
+            toast.error("Error: " + error);
             console.log("Error: " + error);
           });
       };

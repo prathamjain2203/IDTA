@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminCredentials from "../../data/AdminCredentials.json";
+import { toast } from "react-toastify";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const AdminLogin = () => {
       password === null ||
       password === undefined
     ) {
-      alert("Empty Input Fields");
+      toast.error("Empty Input Fields");
     } else {
       // login logic
       if (
@@ -26,7 +27,7 @@ const AdminLogin = () => {
         localStorage.setItem("currentAdmin", "admin");
         navigate("/contactforms");
       } else {
-        alert("Incorrect Admin Credentials");
+        toast.error("Incorrect Admin Credentials");
       }
     }
   };

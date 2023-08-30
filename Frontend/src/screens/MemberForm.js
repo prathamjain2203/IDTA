@@ -55,12 +55,12 @@ const MemberForm = () => {
   //         saveMembershipPurchaseInfo(membershipPurchaseInfo);
   //       } else {
   //         console.log("Payment Failed");
-  //         alert("Payment Failed");
+  //         toast.error("Payment Failed");
   //       }
   //     })
   //     .catch((error) => {
   //       console.log("Error:" + error);
-  //       alert("Error:" + error);
+  //       toast.error("Error:" + error);
   //     });
   // };
 
@@ -92,7 +92,7 @@ const MemberForm = () => {
       })
       .catch((error) => {
         console.log("Error: " + error);
-        alert("Error: " + error);
+        toast.error("Error: " + error);
       });
   };
 
@@ -106,7 +106,7 @@ const MemberForm = () => {
       })
       .catch((error) => {
         console.log("Error: " + error);
-        alert("Error: " + error);
+        toast.error("Error: " + error);
       });
   };
 
@@ -143,7 +143,7 @@ const MemberForm = () => {
   //           paymentStatus: "paid",
   //         };
   //         updatePaymentStatus(paymentInfo);
-  //         //     alert("Congrats Payment Successful");
+  //         //     toast.error("Congrats Payment Successful");
   //         //   },
 
   //         //   prefill: {
@@ -179,7 +179,7 @@ const MemberForm = () => {
   //         //     paymentStatus: "failed",
   //         //   };
   //         //   updatePaymentStatus(paymentInfo);
-  //         //   alert("Payment Failure");
+  //         //   toast.error("Payment Failure");
   //         // });
 
   //         // rzp1.open();
@@ -195,12 +195,12 @@ const MemberForm = () => {
   //           paymentStatus: "failed",
   //         };
   //         updatePaymentStatus(paymentInfo);
-  //         alert("Order is Not Created");
+  //         toast.error("Order is Not Created");
   //       }
   //     })
   //     .catch((error) => {
   //       console.log("Error: " + error);
-  //       alert("Error: " + error);
+  //       toast.error("Error: " + error);
   //     });
   // };
   const [searchParams] = useSearchParams();
@@ -272,7 +272,7 @@ const MemberForm = () => {
       registrationDate === "" ||
       registrationDate === null
     ) {
-      alert("Please fill the input fields");
+      toast.error("Please fill the input fields");
     } else {
       // generateOrder();
       window.open(
@@ -294,7 +294,7 @@ const MemberForm = () => {
         })
         .catch((error) => {
           console.log("Error:", error);
-          alert("Error:" + error);
+          toast.error("Error:" + error);
         });
     };
 
@@ -305,7 +305,7 @@ const MemberForm = () => {
         })
         .catch((error) => {
           console.log("Error:", error);
-          alert("Error:" + error);
+          toast.error("Error:" + error);
         });
     };
 
