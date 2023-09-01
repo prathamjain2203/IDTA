@@ -30,7 +30,7 @@ public class PaymentService {
 	CoursesServices coursesServices;
 
 	private static final String STRIPE_SECRET_KEY = "sk_test_51NbcsCSJmskiVUyUD3gXA6oAfxvCbuGr06viiMWQaX8FaigSv6xf3SB9ANxdKqBoksoo6yJ580hC299Z38xKOxEZ00pKrpyWlL";
-	private static final String REDIRECT_BASE_URL = "https://idtaproduction.up.railway.app";
+	private static final String REDIRECT_BASE_URL = "https://idta.up.railway.app";
 
 	private static final String SECRET_ID = "rzp_test_MhgWsGqXzdSuX0";
 	private static final String SECRET_KEY = "JOC7SY9AzVpNZip9KCrMYbyF";
