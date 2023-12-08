@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import { Container } from "react-bootstrap";
 import serviceJson from "../assets/jsonData/ServiceData.json";
@@ -9,7 +9,7 @@ import Img4 from "../assets/img/img (4).jpg";
 
 const Services = () => {
   const serviceData = serviceJson;
-
+  const [title, setTitle] = useState("");
   return (
     <div>
       <Navbar />
@@ -29,6 +29,7 @@ const Services = () => {
                     <div
                       className="col-6 col-md-2 col-lg-2 col-xl-2 my-2"
                       key={index}
+                      onClick={() => setTitle(serviceItem.title)}
                     >
                       {serviceItem.url === "/commingsoon" ? (
                         <Link
@@ -257,6 +258,15 @@ const Services = () => {
                 ></button>
               </div>
               <div className="modal-body text-center">
+                <p style={{ textAlign: "center" }}>
+                  {title === "Community Support"
+                    ? "Be a part of IDTA community. IDTA is run by Dental Technician for Dental Technician and our voluntary management team have a wealth of experience within the Dental Technology profession. IDTA members provide support when you need if the IDTA office and support team are there to help you with your enquiries on a variety fo topics."
+                    : title === "Advertisements"
+                    ? "Expose your Brand to over 5000 Dental Technologist"
+                    : title === "Expert Support"
+                    ? "To mentor new Members to help them develop personally and the profession as a whole. As per Govt for India norms additional GST (18%) will be added to your total fee amount."
+                    : null}
+                </p>
                 Form Link:{" "}
                 <a
                   className="text-light text-center mb-3 mx-auto text-decoration-none"

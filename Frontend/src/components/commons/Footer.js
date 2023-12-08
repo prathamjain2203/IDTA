@@ -138,7 +138,7 @@ const Footer = () => {
                 href="tel:+91 0123456789"
               >
                 <TelephoneFill />
-                &nbsp;+44 7754 489702
+                &nbsp;+91 9779367672
               </a>
               <br />
               <a
