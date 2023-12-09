@@ -164,13 +164,13 @@ const Careers = () => {
                 smart memebership and employment process. Lets join hands and
                 become a bigger family.
               </p>
-              <a
+              {/* <a
                 className="btn btn-success border-0 mx-auto px-4 shadow-none btn-lg fw-bold"
                 href="https://google.com"
                 alt="button"
               >
                 Button Here
-              </a>
+              </a> */}
             </div>
           </div>
           <div

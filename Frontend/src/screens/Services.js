@@ -24,7 +24,7 @@ const Services = () => {
             <div className="text-start h-100 w-100 d-flex align-items-center">
               <div className="container py-5">
                 <h1 className="fw-bold">Exclusive Services</h1>
-                <div className="row" style={{ flexWrap: "wrap", gap: "20px" }}>
+                <div className="row" style={{ flexWrap: "wrap", gap: "20px", }}>
                   {serviceData.map((serviceItem, index) => (
                     <div
                       style={{
@@ -32,7 +32,7 @@ const Services = () => {
                         padding: 0,
                         background: "white",
                       }}
-                      className="col-6 col-md-2 col-lg-2 col-xl-2 my-2"
+                      className="col-6 col-md-2 col-lg-2 col-xl-2 my-2 service-card"
                       key={index}
                       onClick={() => setTitle(serviceItem.title)}
                     >

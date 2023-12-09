@@ -7,3 +7,25 @@
     margin-top: 100px !important;
   }
 }
+
+@media (max-width: 767.98px) {
+  .service-card {
+    width: 90% !important;
+    margin: auto;
+  }
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    align-items: center;
+    justify-content: center;
+  }
+  /* .about-grid > .image {
+    display: flex;
+    align-items: center;
+    width: 100% !important;
+    justify-content: center;
+  }
+  .about-grid > .image > img {
+   
+    width: 60% !important;
+  } */
+}

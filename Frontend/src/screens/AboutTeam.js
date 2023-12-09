@@ -13,9 +13,11 @@ const Images = [board1, board2, board3, board4];
 const Card = ({ item, image }) => {
   return (
     <div
+      className="about-grid"
       style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "10px" }}
     >
       <div
+      className="image"
         style={{
           width: "200px",
           height: "172px",

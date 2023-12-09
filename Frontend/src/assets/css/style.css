@@ -58,7 +58,7 @@ section {
 }
 
 p {
-  text-align: justify !important;
+  /* text-align: justify !important; */
 }
 
 .footer {
