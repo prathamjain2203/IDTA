@@ -102,7 +102,9 @@ const Homepage = () => {
                         style={{
                           fontSize: "22px",
                         }}
-                      >SAMPLE TEST 2</p>
+                      >
+                        SAMPLE TEST 2
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -125,7 +127,9 @@ const Homepage = () => {
                         style={{
                           fontSize: "22px",
                         }}
-                      >SAMPLE TEST</p>
+                      >
+                        SAMPLE TEST
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -186,69 +190,6 @@ const Homepage = () => {
           </div>
         </div>
         <div className="row m-0 pb-0 mb-0">
-          <div
-            className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5"
-            style={{
-              background: "#090909",
-            }}
-          >
-            <div className="container py-5">
-              <h1 className="fw-bold">What we do for you?</h1>
-              <ol className="mt-3">
-                <li>
-                  IDTA work with students to provide a seamless transaction from
-                  Universities, Colleges & Institutes into the profession
-                  ensuring a well trained fully supported work forces into the
-                  future.
-                </li>
-                <li>
-                  Stay connected to those in the market to buy or sale practice
-                  and equipments.
-                </li>
-                <li>Mentoring programmes.</li>
-                <li>
-                  We connect with you the leader in the profession, so, you can
-                  meet, learn and share ideas with them.
-                </li>
-                <li>
-                  An open form for you to share your thoughts. Group study,
-                  group study with other association. Annual conferences. Our
-                  annual conference provide world class CPD, great social events
-                  and the chance to connect with expert with 1st Class Speakers
-                  and time to catch with colleagues.
-                </li>
-                <li>
-                  Collected and shared, so, you can stay on top of the latest
-                  research and news from across the profession, saving your
-                  time, so, you can focus on what's important for your patient.
-                </li>
-              </ol>
-              <a
-                className="btn btn-success border-0 mx-auto px-4 shadow-none btn-lg fw-bold"
-                href="/membership"
-              >
-                Register Now
-              </a>
-            </div>
-          </div>
-          <div
-            className="col-md-6 col-lg-6 col-xl-6 my-0 p-0 my-0"
-            style={{
-              background: "#090909",
-            }}
-          >
-            <img
-              className="img-fluid w-100 h-100 py-0 my-0"
-              src={Img1}
-              alt="logo"
-              style={{
-                maxWidth: "100%",
-                maxHeight: "100%",
-                objectFit: "cover",
-                objectPosition: "center",
-              }}
-            />
-          </div>
           <div
             className="col-md-6 col-lg-6 col-xl-6 my-0 p-0 my-0"
             style={{
@@ -312,6 +253,69 @@ const Homepage = () => {
                 <li>We offer peer review advice and support.</li>
               </ol>
             </div>
+          </div>
+          <div
+            className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5"
+            style={{
+              background: "#090909",
+            }}
+          >
+            <div className="container py-5">
+              <h1 className="fw-bold">What we do for you?</h1>
+              <ol className="mt-3">
+                <li>
+                  IDTA work with students to provide a seamless transaction from
+                  Universities, Colleges & Institutes into the profession
+                  ensuring a well trained fully supported work forces into the
+                  future.
+                </li>
+                <li>
+                  Stay connected to those in the market to buy or sale practice
+                  and equipments.
+                </li>
+                <li>Mentoring programmes.</li>
+                <li>
+                  We connect with you the leader in the profession, so, you can
+                  meet, learn and share ideas with them.
+                </li>
+                <li>
+                  An open form for you to share your thoughts. Group study,
+                  group study with other association. Annual conferences. Our
+                  annual conference provide world class CPD, great social events
+                  and the chance to connect with expert with 1st Class Speakers
+                  and time to catch with colleagues.
+                </li>
+                <li>
+                  Collected and shared, so, you can stay on top of the latest
+                  research and news from across the profession, saving your
+                  time, so, you can focus on what's important for your patient.
+                </li>
+              </ol>
+              <a
+                className="btn btn-success border-0 mx-auto px-4 shadow-none btn-lg fw-bold"
+                href="/membership"
+              >
+                Register Now
+              </a>
+            </div>
+          </div>
+          <div
+            className="col-md-6 col-lg-6 col-xl-6 my-0 p-0 my-0"
+            style={{
+              background: "#090909",
+            }}
+          >
+            <img
+              className="img-fluid w-100 h-100 py-0 my-0"
+              src={Img1}
+              alt="logo"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "100%",
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
+            />
           </div>
         </div>
 

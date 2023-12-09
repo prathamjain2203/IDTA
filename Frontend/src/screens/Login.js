@@ -8,7 +8,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = async () => {
+  const login = async (e) => {
+    e.preventDefault();
     if (
       email === "" ||
       email === null ||
@@ -77,7 +78,7 @@ const Login = () => {
         style={{ maxWidth: "500px" }}
       >
         <div className="card-body">
-          <form>
+          <form onSubmit={(e) => login(e)}>
             <h1 className="text-center">Login</h1>
             <hr />
             {localStorage.getItem("userRegistered") === null ||
@@ -92,7 +93,7 @@ const Login = () => {
                 type="text"
                 className="form-control bg-transparent shadow-none border-top-0 border-start-0 border-end-0 p-2 text-light"
                 placeholder="Email"
-                onKeyDown={(e) => keyDownHandler(e)}
+                // onKeyDown={(e) => keyDownHandler(e)}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
@@ -102,7 +103,7 @@ const Login = () => {
                 type="password"
                 className="form-control bg-transparent shadow-none border-top-0 border-start-0 border-end-0 p-2 text-light"
                 placeholder="Password"
-                onKeyDown={(e) => keyDownHandler(e)}
+                // onKeyDown={(e) => keyDownHandler(e)}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
@@ -118,9 +119,8 @@ const Login = () => {
             </p>
             <div className="text-center">
               <button
-                type="button"
+                type="submit"
                 className="btn bg-custom-primary text-light fw-bold w-100"
-                onClick={() => login()}
               >
                 Login
               </button>

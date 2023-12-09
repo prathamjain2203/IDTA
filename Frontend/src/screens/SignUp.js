@@ -10,7 +10,8 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signUp = async () => {
+  const signUp = async (e) => {
+    e.preventDefault();
     if (
       fullname === "" ||
       fullname === null ||
@@ -73,7 +74,7 @@ const SignUp = () => {
         style={{ maxWidth: "500px" }}
       >
         <div className="card-body">
-          <form>
+          <form onSubmit={(e) => signUp(e)}>
             <h1 className="text-center">Sign Up</h1>
             <hr />
             <div className="mb-3">
@@ -81,7 +82,7 @@ const SignUp = () => {
                 type="text"
                 className="form-control bg-transparent shadow-none border-top-0 border-start-0 border-end-0 p-2 text-light"
                 placeholder="Name"
-                onKeyDown={(e) => keyDownHandler(e)}
+                // onKeyDown={(e) => keyDownHandler(e)}
                 onChange={(e) => setFullname(e.target.value)}
                 required
               />
@@ -91,7 +92,7 @@ const SignUp = () => {
                 type="text"
                 className="form-control bg-transparent shadow-none border-top-0 border-start-0 border-end-0 p-2 text-light"
                 placeholder="Email"
-                onKeyDown={(e) => keyDownHandler(e)}
+                // onKeyDown={(e) => keyDownHandler(e)}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
@@ -101,7 +102,7 @@ const SignUp = () => {
                 type="password"
                 className="form-control bg-transparent shadow-none border-top-0 border-start-0 border-end-0 p-2 text-light"
                 placeholder="Password"
-                onKeyDown={(e) => keyDownHandler(e)}
+                // onKeyDown={(e) => keyDownHandler(e)}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
@@ -117,9 +118,8 @@ const SignUp = () => {
             </p>
             <div className="text-center">
               <button
-                type="button"
+                type="submit"
                 className="btn bg-custom-primary text-light fw-bold w-100"
-                onClick={() => signUp()}
               >
                 Register
               </button>

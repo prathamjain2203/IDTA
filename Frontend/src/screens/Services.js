@@ -24,9 +24,14 @@ const Services = () => {
             <div className="text-start h-100 w-100 d-flex align-items-center">
               <div className="container py-5">
                 <h1 className="fw-bold">Exclusive Services</h1>
-                <div className="row">
+                <div className="row" style={{ flexWrap: "wrap", gap: "20px" }}>
                   {serviceData.map((serviceItem, index) => (
                     <div
+                      style={{
+                        minWidth: "150px",
+                        padding: 0,
+                        background: "white",
+                      }}
                       className="col-6 col-md-2 col-lg-2 col-xl-2 my-2"
                       key={index}
                       onClick={() => setTitle(serviceItem.title)}
@@ -38,17 +43,27 @@ const Services = () => {
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         >
-                          <div className="col-md-3 col-lg-3 col-xl-3 my-3 w-100">
-                            <div className="card service-card">
+                          <div
+                            style={{ marginTop: "0", marginBottom: "0" }}
+                            className="col-md-3 col-lg-3 col-xl-3 my-3 w-100"
+                          >
+                            <div
+                              style={{ border: "none" }}
+                              className="card service-card"
+                            >
                               <img
+                                style={{ border: "none" }}
                                 src={serviceItem.logoImg}
                                 className="card-img-top"
                                 alt="logo"
                               />
                               <div className="card-body">
-                                <h5 className="card-title">
+                                <h6
+                                  style={{ margin: 0 }}
+                                  className="card-title"
+                                >
                                   {serviceItem.title}
-                                </h5>
+                                </h6>
                               </div>
                             </div>
                           </div>
@@ -58,17 +73,27 @@ const Services = () => {
                           className="text-decoration-none"
                           to={serviceItem.url}
                         >
-                          <div className="col-md-3 col-lg-3 col-xl-3 my-3 w-100">
-                            <div className="card service-card">
+                          <div
+                            style={{ marginTop: "0", marginBottom: "0" }}
+                            className="col-md-3 col-lg-3 col-xl-3 my-3 w-100"
+                          >
+                            <div
+                              style={{ border: "none" }}
+                              className="card service-card"
+                            >
                               <img
+                                style={{ border: "none" }}
                                 src={serviceItem.logoImg}
                                 className="card-img-top"
                                 alt="logo"
                               />
                               <div className="card-body">
-                                <h5 className="card-title">
+                                <h6
+                                  style={{ margin: 0 }}
+                                  className="card-title"
+                                >
                                   {serviceItem.title}
-                                </h5>
+                                </h6>
                               </div>
                             </div>
                           </div>
