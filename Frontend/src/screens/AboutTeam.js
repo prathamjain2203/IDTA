@@ -15,7 +15,13 @@ const Card = ({ item, image }) => {
     <div
       style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "10px" }}
     >
-      <div style={{ width: "200px", objectFit: "contain", height: "auto" }}>
+      <div
+        style={{
+          width: "200px",
+          height: "172px",
+          objectFit: "contain",
+        }}
+      >
         <img style={{ width: "100%", height: "100%" }} src={image} alt="pic" />
       </div>
       <div>
