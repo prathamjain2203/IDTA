@@ -70,6 +70,18 @@ public class Users {
 	@Column(nullable = true)
 	private String registrationDate;
 
+	@Column(nullable = true)
+	private String profession;
+
+	@Column(nullable = true)
+	private String address;
+
+	@Column(nullable = true)
+	private String city;
+
+	@Column(nullable = true)
+	private int pincode;
+
 	@Transient
 	private String status;
 
@@ -80,7 +92,7 @@ public class Users {
 	public Users(Long id, String userPrimaryKey, String name, String email, String password, Long telNumber,
 			String faxNumber, String labEmail, String website, String registered, String labEstablishedDate,
 			String ownerFullName, String workType, String serviceType, String staffProfile, String staffProfileTotal,
-			String registeredTechnician, String registrationNumber, String registrationDate) {
+			String registeredTechnician, String registrationNumber, String registrationDate, String profession, String address, String city, int pincode) {
 		super();
 		this.id = id;
 		this.userPrimaryKey = userPrimaryKey;
@@ -101,12 +113,16 @@ public class Users {
 		this.registeredTechnician = registeredTechnician;
 		this.registrationNumber = registrationNumber;
 		this.registrationDate = registrationDate;
+		this.profession = profession;
+		this.address = address;
+		this.city = city;
+		this.pincode = pincode;
 	}
 
 	public Users(String userPrimaryKey, String name, String email, String password, Long telNumber, String faxNumber,
 			String labEmail, String website, String registered, String labEstablishedDate, String ownerFullName,
 			String workType, String serviceType, String staffProfile, String staffProfileTotal,
-			String registeredTechnician, String registrationNumber, String registrationDate) {
+			String registeredTechnician, String registrationNumber, String registrationDate, String profession, String address, String city, int pincode) {
 		super();
 		this.userPrimaryKey = userPrimaryKey;
 		this.name = name;
@@ -126,6 +142,10 @@ public class Users {
 		this.registeredTechnician = registeredTechnician;
 		this.registrationNumber = registrationNumber;
 		this.registrationDate = registrationDate;
+		this.profession = profession;
+		this.address = address;
+		this.city = city;
+		this.pincode = pincode;
 	}
 
 	public Long getId() {
@@ -288,4 +308,11 @@ public class Users {
 		this.status = status;
 	}
 
+	public String getProfession() {
+		return profession;
+	}
+
+	public void settProfession(String profession) {
+		this.profession = profession;
+	}
 }
