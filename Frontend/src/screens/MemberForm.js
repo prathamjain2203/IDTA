@@ -26,10 +26,14 @@ const MemberForm = () => {
   const [labEstablishedDate, setLabEstablishedDate] = useState("");
   const [ownerFullName, setOwnerFullName] = useState("");
   const [workType, setWorkType] = useState("");
+  const [profession, setProfession] = useState("");
   const [serviceType, setServiceType] = useState("");
   const [staffProfile, setStaffProfile] = useState("");
   const [staffProfileTotal, setStaffProfileTotal] = useState("");
   const [registeredTechnician, setRegisteredTechnician] = useState("");
+  const [address, setAddress] = useState("");
+  const [town, setTown] = useState("");
+  const [pincode, setPincode] = useState(null);
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [registrationDate, setRegistrationDate] = useState("");
 
@@ -77,6 +81,10 @@ const MemberForm = () => {
           faxNumber: faxNumber,
           labEmail: labEmail,
           website: website,
+          profession: profession,
+          address,
+          town,
+          pincode,
           registered: registered,
           labEstablishedDate: labEstablishedDate,
           ownerFullName: ownerFullName,
@@ -253,9 +261,13 @@ const MemberForm = () => {
       website === null ||
       registered === "" ||
       registered === null ||
+      !profession ||
       labEstablishedDate === "" ||
       labEstablishedDate === null ||
       ownerFullName === "" ||
+      !pincode ||
+      !address ||
+      town ||
       ownerFullName === null ||
       workType === "" ||
       workType === null ||
@@ -444,20 +456,15 @@ const MemberForm = () => {
                   <div className="mb-3">
                     <input
                       type="text"
+                      onChange={(e) => setAddress(e.target.value)}
                       className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Address 1"
+                      placeholder="Address"
                     />
                   </div>
                   <div className="mb-3">
                     <input
                       type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Address 2"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
+                      onChange={(e) => setTown(e.target.value)}
                       className="form-control bg-transparent text-light shadow-none p-2"
                       placeholder="Town/city"
                     />
@@ -465,6 +472,7 @@ const MemberForm = () => {
                   <div className="mb-3">
                     <input
                       type="number"
+                      onChange={(e) => setPincode(e.target.value)}
                       className="form-control bg-transparent text-light shadow-none p-2"
                       placeholder="Pin code"
                     />
@@ -481,40 +489,43 @@ const MemberForm = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Dental Technician"
-                    />
+                    <select
+                      className="form-select bg-transparent text-light"
+                      onChange={(e) => setProfession(e.target.value)}
+                    >
+                      <option
+                        value={"Dental Technician"}
+                        style={{ background: "#000000" }}
+                      >
+                        Dental Technician
+                      </option>
+                      <option
+                        style={{ background: "#000000" }}
+                        value="Student Dental Technician"
+                      >
+                        Student Dental Technician
+                      </option>
+                      <option
+                        style={{ background: "#000000" }}
+                        value="Dental Laboratory Assistant"
+                      >
+                        Dental Laboratory Assistant
+                      </option>
+                      <option
+                        style={{ background: "#000000" }}
+                        value="Trade Professional"
+                      >
+                        Trade Professional
+                      </option>
+                      <option
+                        style={{ background: "#000000" }}
+                        value="Master Dental Technician"
+                      >
+                        Master Dental Technician
+                      </option>
+                    </select>
                   </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Master Dental Technician"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Dental Laboratory Assistant"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Student Dental Technician"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Trade Professional"
-                    />
-                  </div>
+
                   <div className="mb-3">
                     <label className="mb-2">
                       What services do you offer in your lab ?
