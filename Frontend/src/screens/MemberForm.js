@@ -26,7 +26,7 @@ const MemberForm = () => {
   const [labEstablishedDate, setLabEstablishedDate] = useState("");
   const [ownerFullName, setOwnerFullName] = useState("");
   const [workType, setWorkType] = useState("");
-  const [profession, setProfession] = useState("");
+  const [profession, setProfession] = useState("Dental Technician");
   const [serviceType, setServiceType] = useState("");
   const [staffProfile, setStaffProfile] = useState("");
   const [staffProfileTotal, setStaffProfileTotal] = useState("");
@@ -36,7 +36,7 @@ const MemberForm = () => {
   const [pincode, setPincode] = useState(null);
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [registrationDate, setRegistrationDate] = useState("");
-
+  console.log(town, address, profession, pincode, "PPIN");
   // const updatePaymentStatus = async (paymentInfo) => {
   //   Payment.savePayment(paymentInfo)
   //     .then((response) => {
@@ -71,31 +71,32 @@ const MemberForm = () => {
   const saveMembershipPurchaseInfo = async (membershipPurchaseInfo) => {
     MembershipPackage.savePurchasePackage(membershipPurchaseInfo)
       .then((response) => {
-        const userInfo = {
-          id: currentUser.id,
-          userPrimaryKey: currentUser.userPrimaryKey,
-          name: currentUser.name,
-          email: currentUser.email,
-          password: currentUser.password,
-          telNumber: telNumber,
-          faxNumber: faxNumber,
-          labEmail: labEmail,
-          website: website,
-          profession: profession,
-          address,
-          town,
-          pincode,
-          registered: registered,
-          labEstablishedDate: labEstablishedDate,
-          ownerFullName: ownerFullName,
-          workType: workType,
-          serviceType: serviceType,
-          staffProfile: staffProfile,
-          staffProfileTotal: staffProfileTotal,
-          registeredTechnician: registeredTechnician,
-          registrationNumber: registrationNumber,
-          registrationDate: registrationDate,
-        };
+        const userInfo = JSON.parse(localStorage.getItem("data"));
+        // const userInfo = {
+        //   id: currentUser.id,
+        //   userPrimaryKey: currentUser.userPrimaryKey,
+        //   name: currentUser.name,
+        //   email: currentUser.email,
+        //   password: currentUser.password,
+        //   telNumber: telNumber,
+        //   faxNumber: faxNumber,
+        //   labEmail: labEmail,
+        //   website: website,
+        //   profession: profession,
+        //   address,
+        //   city: town,
+        //   pincode,
+        //   registered: registered,
+        //   labEstablishedDate: labEstablishedDate,
+        //   ownerFullName: ownerFullName,
+        //   workType: workType,
+        //   serviceType: serviceType,
+        //   staffProfile: staffProfile,
+        //   staffProfileTotal: staffProfileTotal,
+        //   registeredTechnician: registeredTechnician,
+        //   registrationNumber: registrationNumber,
+        //   registrationDate: registrationDate,
+        // };
         saveuserInfo(userInfo);
       })
       .catch((error) => {
@@ -251,23 +252,17 @@ const MemberForm = () => {
   }, [membershipPlan?.membershipPackagePrimaryKey]);
   const payment = () => {
     if (
-      telNumber === "" ||
-      telNumber === null ||
-      faxNumber === "" ||
-      faxNumber === null ||
-      labEmail === "" ||
-      labEmail === null ||
-      website === "" ||
-      website === null ||
-      registered === "" ||
-      registered === null ||
+      !telNumber ||
+      !faxNumber ||
+      !labEmail ||
+      !website ||
+      !registered ||
       !profession ||
-      labEstablishedDate === "" ||
-      labEstablishedDate === null ||
-      ownerFullName === "" ||
+      !labEstablishedDate ||
+      !ownerFullName ||
       !pincode ||
       !address ||
-      town ||
+      !town ||
       ownerFullName === null ||
       workType === "" ||
       workType === null ||
@@ -287,6 +282,32 @@ const MemberForm = () => {
       toast.error("Please fill the input fields");
     } else {
       // generateOrder();
+      const userInfo = {
+        id: currentUser.id,
+        userPrimaryKey: currentUser.userPrimaryKey,
+        name: currentUser.name,
+        email: currentUser.email,
+        password: currentUser.password,
+        telNumber: telNumber,
+        faxNumber: faxNumber,
+        labEmail: labEmail,
+        website: website,
+        profession: profession,
+        address,
+        city: town,
+        pincode,
+        registered: registered,
+        labEstablishedDate: labEstablishedDate,
+        ownerFullName: ownerFullName,
+        workType: workType,
+        serviceType: serviceType,
+        staffProfile: staffProfile,
+        staffProfileTotal: staffProfileTotal,
+        registeredTechnician: registeredTechnician,
+        registrationNumber: registrationNumber,
+        registrationDate: registrationDate,
+      };
+      localStorage.setItem("data", JSON.stringify(userInfo));
       window.open(
         `${PAYMENT_BASE_URL}/membership/create-session/${localStorage.getItem(
           "currentUser"
