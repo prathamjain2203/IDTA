@@ -34,6 +34,9 @@ const MemberForm = () => {
   const [address, setAddress] = useState("");
   const [town, setTown] = useState("");
   const [pincode, setPincode] = useState(null);
+  const [terms, setTerms] = useState({
+    terms1: false,
+  });
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [registrationDate, setRegistrationDate] = useState("");
   console.log(town, address, profession, pincode, "PPIN");
@@ -367,7 +370,7 @@ const MemberForm = () => {
                   <h6>Personal Details:</h6>
                   <div className="row mb-3">
                     <div className="col-3">
-                      <select className="form-select bg-transparent text-light">
+                      <select style={{minWidth:'80px'}} className="form-select bg-transparent text-light">
                         <option
                           defaultValue
                           disabled
@@ -685,6 +688,46 @@ const MemberForm = () => {
                       Are you registered with the IDTA?
                     </label>
                   </div>
+                </div>
+              </div>
+              <div>
+                <h2>Terms and Conditions</h2>
+                <div>
+                  <input id="terms1" type={"checkbox"} />
+                  <label
+                    style={{ marginLeft: "5px" }}
+                    for="terms1"
+                    className="mb-2"
+                  >
+                    I am aware that I.D.T.A is for Dental Laboratory
+                    professionals only.By registering with I.D.T.A ,I am
+                    declaring that u am a dental laboratory professional.
+                  </label>
+                </div>
+                <div>
+                  <input id="terms2" type={"checkbox"} />
+                  <label
+                    style={{ marginLeft: "5px" }}
+                    for="terms2"
+                    className="mb-2"
+                  >
+                    I understand and agree that my personal data may be held and
+                    used By the I.D.T.A ,in order to inform me about future
+                    events and to monitor event traffic to improve the event
+                    experience and Training courses for future participants.
+                  </label>
+                </div>
+                <div>
+                  <input id="terms3" type={"checkbox"} />
+                  <label
+                    style={{ marginLeft: "5px" }}
+                    for="terms4"
+                    className="mb-2"
+                  >
+                    I.D.T.A may contact you on behalf of our sponsors and
+                    partners promoting products and services related to your
+                    areas of interest.
+                  </label>
                 </div>
               </div>
             </div>

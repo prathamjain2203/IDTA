@@ -58,13 +58,16 @@ const About = () => {
                   fontSize: "22px",
                 }}
               >
-                The Indian Dental Technician Association is a Pvt.Organization
-                for Dental Laboratory's and Dental Technicians in India and we
-                are committed to keeping member in touch with what is going in
-                Dental Technology and the wider dental arena as well as
-                facilitating our members with the tools they need to stay
-                educated and compliant. Currently the I.D.T.A has 200+ Members
-                and 500+ Socially connected Members
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
               </p>
             </div>
           </div>

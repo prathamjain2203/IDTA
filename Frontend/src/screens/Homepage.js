@@ -5,6 +5,7 @@ import ContactForm from "../lib/ContactForm";
 import Img1 from "../assets/img/img (1).jpg";
 import Img2 from "../assets/img/img (2).jpg";
 import { toast } from "react-toastify";
+import StaticExample from "../components/commons/Modal/Modal";
 
 const Homepage = () => {
   const [labName, setLabName] = useState("");
@@ -54,6 +55,7 @@ const Homepage = () => {
   return (
     <div>
       <Navbar />
+      <StaticExample />
       <section
         className="hero pt-4 section pb-0 mb-0"
         id="hero"
@@ -176,7 +178,13 @@ const Homepage = () => {
                 I.D.T.A. accomplished this by providing Programs, services and
                 networking opportunities to meet the evolving technical,
                 Educational, professional and business needs of dental
-                laboratories.
+                laboratories. The Indian Dental Technician Association is a
+                Pvt.Organization for Dental Laboratory's and Dental Technicians
+                in India and we are committed to keeping member in touch with
+                what is going in Dental Technology and the wider dental arena as
+                well as facilitating our members with the tools they need to
+                stay educated and compliant. Currently the I.D.T.A has 200+
+                Members and 500+ Socially connected Members
               </p>
 
               <button
@@ -316,6 +324,57 @@ const Homepage = () => {
                 objectPosition: "center",
               }}
             />
+          </div>
+          <div
+            className="col-md-6 col-lg-6 col-xl-6 my-0 p-0 my-0"
+            style={{
+              background: "#090909",
+            }}
+          >
+            <img
+              className="img-fluid w-100 h-100 py-0 my-0"
+              src={Img1}
+              alt="logo"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "100%",
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
+            />
+          </div>
+          <div
+            className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5"
+            style={{
+              background: "#090909",
+            }}
+          >
+            <div className="container py-5">
+              {/* <h1 className="fw-bold">What we do for you?</h1> */}
+              <ol className="mt-3">
+                The object for which the Association is established is to
+                represent effectively the interest of the Members and provide a
+                range of professional services to support and develop their
+                business. The Association aims to :-
+                <li>
+                  Inform and advice Members of the latest industry development
+                  and how they will affect their Laboratory.
+                </li>
+                <li>
+                  Support and implement initiatives to improve standards of worm
+                  and materials.
+                </li>
+                <li>
+                  Encourage schemes which help improve rhe technicial and
+                  general knowledge to all those working in the field of dental
+                  technology.
+                </li>
+                <li>
+                  promote membership of the Association to the dental
+                  profession.
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
 
