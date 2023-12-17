@@ -26,13 +26,17 @@ const MemberForm = () => {
   const [labEstablishedDate, setLabEstablishedDate] = useState("");
   const [ownerFullName, setOwnerFullName] = useState("");
   const [workType, setWorkType] = useState("");
+  const [profession, setProfession] = useState("Dental Technician");
   const [serviceType, setServiceType] = useState("");
   const [staffProfile, setStaffProfile] = useState("");
   const [staffProfileTotal, setStaffProfileTotal] = useState("");
   const [registeredTechnician, setRegisteredTechnician] = useState("");
+  const [address, setAddress] = useState("");
+  const [town, setTown] = useState("");
+  const [pincode, setPincode] = useState(null);
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [registrationDate, setRegistrationDate] = useState("");
-
+  console.log(town, address, profession, pincode, "PPIN");
   // const updatePaymentStatus = async (paymentInfo) => {
   //   Payment.savePayment(paymentInfo)
   //     .then((response) => {
@@ -67,27 +71,32 @@ const MemberForm = () => {
   const saveMembershipPurchaseInfo = async (membershipPurchaseInfo) => {
     MembershipPackage.savePurchasePackage(membershipPurchaseInfo)
       .then((response) => {
-        const userInfo = {
-          id: currentUser.id,
-          userPrimaryKey: currentUser.userPrimaryKey,
-          name: currentUser.name,
-          email: currentUser.email,
-          password: currentUser.password,
-          telNumber: telNumber,
-          faxNumber: faxNumber,
-          labEmail: labEmail,
-          website: website,
-          registered: registered,
-          labEstablishedDate: labEstablishedDate,
-          ownerFullName: ownerFullName,
-          workType: workType,
-          serviceType: serviceType,
-          staffProfile: staffProfile,
-          staffProfileTotal: staffProfileTotal,
-          registeredTechnician: registeredTechnician,
-          registrationNumber: registrationNumber,
-          registrationDate: registrationDate,
-        };
+        const userInfo = JSON.parse(localStorage.getItem("data"));
+        // const userInfo = {
+        //   id: currentUser.id,
+        //   userPrimaryKey: currentUser.userPrimaryKey,
+        //   name: currentUser.name,
+        //   email: currentUser.email,
+        //   password: currentUser.password,
+        //   telNumber: telNumber,
+        //   faxNumber: faxNumber,
+        //   labEmail: labEmail,
+        //   website: website,
+        //   profession: profession,
+        //   address,
+        //   city: town,
+        //   pincode,
+        //   registered: registered,
+        //   labEstablishedDate: labEstablishedDate,
+        //   ownerFullName: ownerFullName,
+        //   workType: workType,
+        //   serviceType: serviceType,
+        //   staffProfile: staffProfile,
+        //   staffProfileTotal: staffProfileTotal,
+        //   registeredTechnician: registeredTechnician,
+        //   registrationNumber: registrationNumber,
+        //   registrationDate: registrationDate,
+        // };
         saveuserInfo(userInfo);
       })
       .catch((error) => {
@@ -243,19 +252,17 @@ const MemberForm = () => {
   }, [membershipPlan?.membershipPackagePrimaryKey]);
   const payment = () => {
     if (
-      telNumber === "" ||
-      telNumber === null ||
-      faxNumber === "" ||
-      faxNumber === null ||
-      labEmail === "" ||
-      labEmail === null ||
-      website === "" ||
-      website === null ||
-      registered === "" ||
-      registered === null ||
-      labEstablishedDate === "" ||
-      labEstablishedDate === null ||
-      ownerFullName === "" ||
+      !telNumber ||
+      !faxNumber ||
+      !labEmail ||
+      !website ||
+      !registered ||
+      !profession ||
+      !labEstablishedDate ||
+      !ownerFullName ||
+      !pincode ||
+      !address ||
+      !town ||
       ownerFullName === null ||
       workType === "" ||
       workType === null ||
@@ -275,6 +282,33 @@ const MemberForm = () => {
       toast.error("Please fill the input fields");
     } else {
       // generateOrder();
+      const userInfo = {
+        id: currentUser.id,
+        userPrimaryKey: currentUser.userPrimaryKey,
+        name: currentUser.name,
+        email: currentUser.email,
+        password: currentUser.password,
+        telNumber: telNumber,
+        faxNumber: faxNumber,
+        labEmail: labEmail,
+        website: website,
+        profession: profession,
+        address,
+        city: town,
+        pincode: pincode,
+        registered: registered,
+        labEstablishedDate: labEstablishedDate,
+        ownerFullName: ownerFullName,
+        workType: workType,
+        status: "initial",
+        serviceType: serviceType,
+        staffProfile: staffProfile,
+        staffProfileTotal: staffProfileTotal,
+        registeredTechnician: registeredTechnician,
+        registrationNumber: registrationNumber,
+        registrationDate: registrationDate,
+      };
+      localStorage.setItem("data", JSON.stringify(userInfo));
       window.open(
         `${PAYMENT_BASE_URL}/membership/create-session/${localStorage.getItem(
           "currentUser"
@@ -444,20 +478,15 @@ const MemberForm = () => {
                   <div className="mb-3">
                     <input
                       type="text"
+                      onChange={(e) => setAddress(e.target.value)}
                       className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Address 1"
+                      placeholder="Address"
                     />
                   </div>
                   <div className="mb-3">
                     <input
                       type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Address 2"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
+                      onChange={(e) => setTown(e.target.value)}
                       className="form-control bg-transparent text-light shadow-none p-2"
                       placeholder="Town/city"
                     />
@@ -465,6 +494,7 @@ const MemberForm = () => {
                   <div className="mb-3">
                     <input
                       type="number"
+                      onChange={(e) => setPincode(e.target.value)}
                       className="form-control bg-transparent text-light shadow-none p-2"
                       placeholder="Pin code"
                     />
@@ -481,40 +511,43 @@ const MemberForm = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Dental Technician"
-                    />
+                    <select
+                      className="form-select bg-transparent text-light"
+                      onChange={(e) => setProfession(e.target.value)}
+                    >
+                      <option
+                        value={"Dental Technician"}
+                        style={{ background: "#000000" }}
+                      >
+                        Dental Technician
+                      </option>
+                      <option
+                        style={{ background: "#000000" }}
+                        value="Student Dental Technician"
+                      >
+                        Student Dental Technician
+                      </option>
+                      <option
+                        style={{ background: "#000000" }}
+                        value="Dental Laboratory Assistant"
+                      >
+                        Dental Laboratory Assistant
+                      </option>
+                      <option
+                        style={{ background: "#000000" }}
+                        value="Trade Professional"
+                      >
+                        Trade Professional
+                      </option>
+                      <option
+                        style={{ background: "#000000" }}
+                        value="Master Dental Technician"
+                      >
+                        Master Dental Technician
+                      </option>
+                    </select>
                   </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Master Dental Technician"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Dental Laboratory Assistant"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Student Dental Technician"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
-                      className="form-control bg-transparent text-light shadow-none p-2"
-                      placeholder="Trade Professional"
-                    />
-                  </div>
+
                   <div className="mb-3">
                     <label className="mb-2">
                       What services do you offer in your lab ?
