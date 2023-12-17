@@ -300,6 +300,7 @@ const MemberForm = () => {
         labEstablishedDate: labEstablishedDate,
         ownerFullName: ownerFullName,
         workType: workType,
+        status: "initial",
         serviceType: serviceType,
         staffProfile: staffProfile,
         staffProfileTotal: staffProfileTotal,
