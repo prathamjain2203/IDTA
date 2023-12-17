@@ -295,7 +295,7 @@ const MemberForm = () => {
         profession: profession,
         address,
         city: town,
-        pincode,
+        pincode: Number(pincode),
         registered: registered,
         labEstablishedDate: labEstablishedDate,
         ownerFullName: ownerFullName,
