@@ -80,7 +80,7 @@ public class Users {
 	private String city;
 
 	@Column(nullable = true)
-	private int pincode;
+	private String pincode;
 
 	@Transient
 	private String status;
@@ -92,7 +92,7 @@ public class Users {
 	public Users(Long id, String userPrimaryKey, String name, String email, String password, Long telNumber,
 			String faxNumber, String labEmail, String website, String registered, String labEstablishedDate,
 			String ownerFullName, String workType, String serviceType, String staffProfile, String staffProfileTotal,
-			String registeredTechnician, String registrationNumber, String registrationDate, String profession, String address, String city, int pincode) {
+			String registeredTechnician, String registrationNumber, String registrationDate, String profession, String address, String city, String pincode) {
 		super();
 		this.id = id;
 		this.userPrimaryKey = userPrimaryKey;
@@ -122,7 +122,7 @@ public class Users {
 	public Users(String userPrimaryKey, String name, String email, String password, Long telNumber, String faxNumber,
 			String labEmail, String website, String registered, String labEstablishedDate, String ownerFullName,
 			String workType, String serviceType, String staffProfile, String staffProfileTotal,
-			String registeredTechnician, String registrationNumber, String registrationDate, String profession, String address, String city, int pincode) {
+			String registeredTechnician, String registrationNumber, String registrationDate, String profession, String address, String city, String pincode) {
 		super();
 		this.userPrimaryKey = userPrimaryKey;
 		this.name = name;
