@@ -17,7 +17,9 @@ const CourseInfo = ({ stripePromise }) => {
   const navigate = useNavigate();
   const [courseSrc, setCourseSrc] = useState([]);
   const [purchased, setPurchased] = useState(false);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [searchParams] = useSearchParams();
   const paymentSuccess = searchParams.get("success");
   const paymentId = searchParams.get("pid");

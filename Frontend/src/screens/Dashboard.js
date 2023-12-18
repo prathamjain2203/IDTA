@@ -29,6 +29,9 @@ const Dashboard = () => {
   const redirectToLogin = () => {
     window.location.replace("login");
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const countMembershipExpire = (date, availableTill) => {
     let dateResult = new Date(date);

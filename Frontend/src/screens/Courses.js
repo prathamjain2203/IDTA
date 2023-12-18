@@ -9,7 +9,9 @@ import { toast } from "react-toastify";
 
 const Courses = () => {
   const [courseData, setCourseData] = useState([]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const getCoursesDetails = async () => {
     CoursesAvailable.getAllCourses()
       .then((response) => {
@@ -30,7 +32,7 @@ const Courses = () => {
       <Navbar />
       <Container>
         <section className="about pt-5 mt-5 section" id="about">
-          <h3 style={{textAlign:'center'}}>Coming Soon</h3>
+          <h3 style={{ textAlign: "center" }}>Coming Soon</h3>
           {/* <div className="row mt-5">
             <h1 className="fw-bold">Currently Available Courses</h1>
             <a
@@ -71,7 +73,7 @@ const Courses = () => {
                           {/* <p className="text-decoration-none text-dark text-center">
                             Book Your Place Now!
                           </p> */}
-                          {/* <p className="text-decoration-none text-dark text-center">
+          {/* <p className="text-decoration-none text-dark text-center">
                             Comming Soon
                           </p>
                         </div>

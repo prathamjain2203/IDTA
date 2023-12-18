@@ -38,6 +38,9 @@ const Membership = () => {
         toast.error("Error:" + error);
       });
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const checkMembershipPackages = async (userPrimaryKey) => {
     MembershipPackage.getMembershipPackageByUser(userPrimaryKey)

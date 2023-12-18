@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { Container } from "react-bootstrap";
 // import IDTALogo from "../assets/img/idta-logo.png";
 import Footer from "../components/commons/Footer";
@@ -17,7 +17,7 @@ const Card = ({ item, image }) => {
       style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "10px" }}
     >
       <div
-      className="image"
+        className="image"
         style={{
           width: "200px",
           height: "172px",
@@ -72,6 +72,9 @@ const Card = ({ item, image }) => {
 };
 
 const AboutTeam = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <Navbar />

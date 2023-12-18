@@ -320,7 +320,9 @@ const MemberForm = () => {
       );
     }
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     window.scrollTo(0, 0);
     console.log(membershipPackagePrimaryKey);
@@ -334,6 +336,7 @@ const MemberForm = () => {
           toast.error("Error:" + error);
         });
     };
+    
 
     const getCurrentUser = async () => {
       Users.getUser(localStorage.getItem("currentUser"))

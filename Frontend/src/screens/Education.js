@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { Container } from "react-bootstrap";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
 import Img5 from "../assets/img/img (5).jpg";
 
 const Education = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <Navbar />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import { Container } from "react-bootstrap";
 import serviceJson from "../assets/jsonData/ServiceData.json";
@@ -10,6 +10,11 @@ import Img4 from "../assets/img/img (4).jpg";
 const Services = () => {
   const serviceData = serviceJson;
   const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -24,7 +29,7 @@ const Services = () => {
             <div className="text-start h-100 w-100 d-flex align-items-center">
               <div className="container py-5">
                 <h1 className="fw-bold">Exclusive Services</h1>
-                <div className="row" style={{ flexWrap: "wrap", gap: "20px", }}>
+                <div className="row" style={{ flexWrap: "wrap", gap: "20px" }}>
                   {serviceData.map((serviceItem, index) => (
                     <div
                       style={{
@@ -289,7 +294,7 @@ const Services = () => {
                     : title === "Advertisements"
                     ? "Expose your Brand to over 5000 Dental Technologist"
                     : title === "Expert Support"
-                    ? "To mentor new Members to help them develop personally and the profession as a whole. As per Govt for India norms additional GST (18%) will be added to your total fee amount."
+                    ? "To mentor new Members to help them develop personally and the profession as a whole. As per Govt for India norms will be added to your total fee amount."
                     : null}
                 </p>
                 Form Link:{" "}

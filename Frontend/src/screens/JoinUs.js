@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { Container } from "react-bootstrap";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
@@ -13,7 +13,9 @@ const JoinUs = () => {
   const [labEmail, setLabEmail] = useState("");
   const [website, setWebsite] = useState("");
   const [ownerFullName, setOwnerFullName] = useState("");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const saveContactInfo = async (contactInfo) => {
     ContactForm.saveContact(contactInfo)
       .then((response) => {
