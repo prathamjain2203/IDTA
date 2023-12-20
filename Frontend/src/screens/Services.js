@@ -81,7 +81,7 @@ const Services = () => {
                       ) : (
                         <a
                           className="text-decoration-none"
-                          to={serviceItem.url}
+                          href={serviceItem.url}
                         >
                           <div
                             style={{ marginTop: "0", marginBottom: "0" }}
