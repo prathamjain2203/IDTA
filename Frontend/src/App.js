@@ -21,35 +21,63 @@ import JobsApplications from "./screens/admin/JobsApplications";
 import ContactForms from "./screens/admin/ContactForms";
 import Payments from "./screens/admin/Payments";
 import { ToastContainer } from "react-bootstrap";
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/aboutTeam" element={<AboutTeam />} />
-        <Route path="/membership" element={<Membership />} />
-        <Route path="/service" element={<Services />} />
-        <Route path="/education" element={<Education />} />
-        <Route path="/career" element={<Careers />} />
-        <Route path="/joinus" element={<JoinUs />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        {/* <Route path="/course/:courseID" element={<CourseInfo />} /> */}
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+export const router = createBrowserRouter(
+  createRoutesFromElements([
+    <Route path="/" element={<Homepage />} />,
+        <Route path="/about" element={<About />} />,
+        <Route path="/aboutTeam" element={<AboutTeam />} />,
+        <Route path="/membership" element={<Membership />} />,
+        <Route path="/service" element={<Services />} />,
+        <Route path="/education" element={<Education />} />,
+        <Route path="/career" element={<Careers />} />,
+        <Route path="/joinus" element={<JoinUs />} />,
+        <Route path="/login" element={<Login />} />,
+        <Route path="/signup" element={<SignUp />} />,
+        <Route path="/courses" element={<Courses />} />,
+        <Route path="/dashboard" element={<Dashboard />} />,
         <Route
           path="/membershipform/:membershipPackagePrimaryKey"
           element={<MemberForm />}
-        />
-        <Route path="/adminLogin" element={<AdminLogin />} />
-        <Route path="/jobapplications" element={<JobsApplications />} />
-        <Route path="/contactforms" element={<ContactForms />} />
-        <Route path="/allPayments" element={<Payments />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+        />,
+        <Route path="/adminLogin" element={<AdminLogin />} />,
+        <Route path="/jobapplications" element={<JobsApplications />} />,
+        <Route path="/contactforms" element={<ContactForms />} />,
+        <Route path="/allPayments" element={<Payments />} />,
+   ] )
+);
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<Homepage />} />
+//         <Route path="/about" element={<About />} />
+//         <Route path="/aboutTeam" element={<AboutTeam />} />
+//         <Route path="/membership" element={<Membership />} />
+//         <Route path="/service" element={<Services />} />
+//         <Route path="/education" element={<Education />} />
+//         <Route path="/career" element={<Careers />} />
+//         <Route path="/joinus" element={<JoinUs />} />
+//         <Route path="/login" element={<Login />} />
+//         <Route path="/signup" element={<SignUp />} />
+//         <Route path="/courses" element={<Courses />} />
+//         <Route path="/dashboard" element={<Dashboard />} />
+//         {/* <Route path="/course/:courseID" element={<CourseInfo />} /> */}
+//         <Route
+//           path="/membershipform/:membershipPackagePrimaryKey"
+//           element={<MemberForm />}
+//         />
+//         <Route path="/adminLogin" element={<AdminLogin />} />
+//         <Route path="/jobapplications" element={<JobsApplications />} />
+//         <Route path="/contactforms" element={<ContactForms />} />
+//         <Route path="/allPayments" element={<Payments />} />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
 
-export default App;
+// export default App;
