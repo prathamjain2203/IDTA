@@ -47,7 +47,7 @@ const Services = () => {
                       onClick={() => setTitle(serviceItem.title)}
                     >
                       {serviceItem.url === "/commingsoon" ? (
-                        <Link
+                        <a
                           className="text-decoration-none"
                           to={"/"}
                           data-bs-toggle="modal"
@@ -77,9 +77,9 @@ const Services = () => {
                               </div>
                             </div>
                           </div>
-                        </Link>
+                        </a>
                       ) : (
-                        <Link
+                        <a
                           className="text-decoration-none"
                           to={serviceItem.url}
                         >
@@ -107,7 +107,7 @@ const Services = () => {
                               </div>
                             </div>
                           </div>
-                        </Link>
+                        </a>
                       )}
                     </div>
                   ))}

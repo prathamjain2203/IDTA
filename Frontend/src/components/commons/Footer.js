@@ -90,7 +90,7 @@ const Footer = () => {
                 className="text-decoration-none text-secondary footer-link a-hover"
                 href="/membership"
               >
-                registration Benefits
+                Registration Benefits
               </a>{" "}
               <br />
               <a
