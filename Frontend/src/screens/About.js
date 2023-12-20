@@ -55,7 +55,7 @@ const About = () => {
               <p
                 className="mt-3"
                 style={{
-                  fontSize: "22px",
+                  // fontSize: "22px",
                 }}
               >
                 Dental technology has advanced immeasurably in the 50 years that
@@ -141,7 +141,9 @@ const About = () => {
                       />
                     </div>
                     <div className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center">
-                      <p style={{ fontSize: "22px" }}>
+                      <p
+                      //  style={{ fontSize: "22px" }}
+                       >
                         <ol>
                           <li>
                             To advance standard with Dental Technology for the
@@ -185,7 +187,9 @@ const About = () => {
                       />
                     </div>
                     <div className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center">
-                      <p style={{ fontSize: "22px" }}>
+                      <p
+                      //  style={{ fontSize: "22px" }}
+                       >
                         <p>
                           Indian Dental Technician Associations integrated
                           education and communication for Dental Technician's
@@ -214,7 +218,9 @@ const About = () => {
                       />
                     </div>
                     <div className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center">
-                      <p style={{ fontSize: "22px" }}>
+                      <p 
+                      // style={{ fontSize: "22px" }}
+                      >
                         <p>
                           The I.D.T.A. goal for Dental Laboratory professionals
                           was created to advance the profession of Dental

@@ -177,45 +177,48 @@ const Careers = () => {
               </a> */}
             </div>
           </div>
-          <div
-            className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5"
-            style={{
-              background: "#090909",
-            }}
-          >
-            <div className="container py-5">
-              <h1 className="fw-bold">Commericial Dental Laboratories</h1>
-              <p
-                className="mt-3"
-                style={{
-                  fontSize: "22px",
-                }}
-              >
-                These laboratories are where most dental technician work, either
-                as employees or with experience, running their own Laboratories.
-                The laboratories, which ranges from single handed organization
-                through to large companies, receive prescriptions from dentists
-                and carry out work required. They also repair or modify
-                appliances. A large laboratory deals with a wide variety of work
-                and may offer the opportunity to specialize.
-              </p>
-            </div>
-          </div>
-          <div
-            className="col-md-6 col-lg-6 col-xl-6 my-0 d-flex align-items-center p-0"
-            style={{ background: "#090909" }}
-          >
-            <img
-              className="img-fluid mx-auto w-100 h-100"
-              src={Img7}
-              alt="logo"
+          <div style={{ display: "flex", flexWrap: "wrap-reverse" }}>
+            <div
+              className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5"
               style={{
-                maxWidth: "100%",
-                maxHeight: "100%",
-                objectFit: "cover",
-                objectPosition: "center",
+                background: "#090909",
               }}
-            />
+            >
+              <div className="container py-5">
+                <h1 className="fw-bold">Commericial Dental Laboratories</h1>
+                <p
+                  className="mt-3"
+                  style={{
+                    fontSize: "22px",
+                  }}
+                >
+                  These laboratories are where most dental technician work,
+                  either as employees or with experience, running their own
+                  Laboratories. The laboratories, which ranges from single
+                  handed organization through to large companies, receive
+                  prescriptions from dentists and carry out work required. They
+                  also repair or modify appliances. A large laboratory deals
+                  with a wide variety of work and may offer the opportunity to
+                  specialize.
+                </p>
+              </div>
+            </div>
+            <div
+              className="col-md-6 col-lg-6 col-xl-6 my-0 d-flex align-items-center p-0"
+              style={{ background: "#090909" }}
+            >
+              <img
+                className="img-fluid mx-auto w-100 h-100"
+                src={Img7}
+                alt="logo"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+              />
+            </div>
           </div>
           <div
             className="col-md-6 col-lg-6 col-xl-6 my-0 d-flex align-items-center p-0"
