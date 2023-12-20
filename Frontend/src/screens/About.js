@@ -5,6 +5,7 @@ import AboutTeamImg1 from "../assets/img/about-img-1.png";
 import AboutTeamImg2 from "../assets/img/about-img-2.png";
 import AboutTeamImg3 from "../assets/img/about-img-3.png";
 import vision2 from "../assets/img/vision2.jpg";
+import { ScrollRestoration } from "react-router-dom";
 
 const About = () => {
   const [currentTab, setCurrentTab] = useState("vision");
@@ -26,6 +27,11 @@ const About = () => {
 
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       <Navbar />
       <section className="pt-4 section pb-0" id="about">
         <div className="row mt-5 m-0">
@@ -54,9 +60,11 @@ const About = () => {
               {/* <h1 className="fw-bold">About Dental Technology</h1> */}
               <p
                 className="mt-3"
-                style={{
-                  // fontSize: "22px",
-                }}
+                style={
+                  {
+                    // fontSize: "22px",
+                  }
+                }
               >
                 Dental technology has advanced immeasurably in the 50 years that
                 these publications have been available. At that time the
@@ -143,7 +151,7 @@ const About = () => {
                     <div className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center">
                       <p
                       //  style={{ fontSize: "22px" }}
-                       >
+                      >
                         <ol>
                           <li>
                             To advance standard with Dental Technology for the
@@ -189,7 +197,7 @@ const About = () => {
                     <div className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center">
                       <p
                       //  style={{ fontSize: "22px" }}
-                       >
+                      >
                         <p>
                           Indian Dental Technician Associations integrated
                           education and communication for Dental Technician's
@@ -218,7 +226,7 @@ const About = () => {
                       />
                     </div>
                     <div className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center">
-                      <p 
+                      <p
                       // style={{ fontSize: "22px" }}
                       >
                         <p>

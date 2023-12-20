@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 // import useRazorpay from "react-razorpay";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { ScrollRestoration, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
 import MembershipPackage from "../lib/MembershipPackage";
@@ -336,7 +336,6 @@ const MemberForm = () => {
           toast.error("Error:" + error);
         });
     };
-    
 
     const getCurrentUser = async () => {
       Users.getUser(localStorage.getItem("currentUser"))
@@ -355,6 +354,11 @@ const MemberForm = () => {
 
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       <Navbar />
       <Container>
         <section className="about pt-5 mt-5 section" id="about">
@@ -373,7 +377,10 @@ const MemberForm = () => {
                   <h6>Personal Details:</h6>
                   <div className="row mb-3">
                     <div className="col-3">
-                      <select style={{minWidth:'80px'}} className="form-select bg-transparent text-light">
+                      <select
+                        style={{ minWidth: "80px" }}
+                        className="form-select bg-transparent text-light"
+                      >
                         <option
                           defaultValue
                           disabled

@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import Footer from "../../components/commons/Footer";
 import Jobs from "../../lib/Jobs";
 import { toast } from "react-toastify";
+import { ScrollRestoration } from "react-router-dom";
 
 const JobsApplications = () => {
   const [jobApplicationData, setJobApplicationData] = useState([]);
@@ -42,6 +43,11 @@ const JobsApplications = () => {
   }, []);
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       {/* <AdminNavbar /> */}
       <Container>
         {localStorage.getItem("currentAdmin") === null ||

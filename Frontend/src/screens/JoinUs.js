@@ -6,6 +6,7 @@ import ContactForm from "../lib/ContactForm";
 import Img3 from "../assets/img/img (3).jpg";
 import Img4 from "../assets/img/img (4).jpg";
 import { toast } from "react-toastify";
+import { ScrollRestoration } from "react-router-dom";
 
 const JoinUs = () => {
   const [labName, setLabName] = useState("");
@@ -56,6 +57,11 @@ const JoinUs = () => {
 
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       <Navbar />
       <section
         className="hero pt-4 section pb-0 mb-0"

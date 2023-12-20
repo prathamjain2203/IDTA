@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 // import { Container } from "react-bootstrap";
 import serviceJson from "../assets/jsonData/ServiceData.json";
 import Footer from "../components/commons/Footer";
@@ -17,6 +17,11 @@ const Services = () => {
 
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       <Navbar />
       <section className="pt-4 section pb-0 mb-0">
         <div className="row mt-5 m-0 pb-0 mb-0">

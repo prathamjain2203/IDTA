@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import Footer from "../../components/commons/Footer";
 import ContactForm from "../../lib/ContactForm";
 import { toast } from "react-toastify";
+import { ScrollRestoration } from "react-router-dom";
 
 const ContactForms = () => {
   const [contactForms, setContactForms] = useState([]);
@@ -40,6 +41,11 @@ const ContactForms = () => {
   }, []);
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       {/* <AdminNavbar /> */}
       <Container>
         {localStorage.getItem("currentAdmin") === null ||

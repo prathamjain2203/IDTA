@@ -3,14 +3,19 @@ import React, { useEffect } from "react";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
 import Img5 from "../assets/img/img (5).jpg";
+import { ScrollRestoration } from "react-router-dom";
 
 const Education = () => {
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       <Navbar />
       <section
         className="hero pt-4 section pb-0 mb-0"

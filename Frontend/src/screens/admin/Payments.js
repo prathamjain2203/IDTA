@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Footer from "../../components/commons/Footer";
+import { ScrollRestoration } from "react-router-dom";
 const GET_ALL_PAYMENTS =
   "https://springboot-java-production-daec.up.railway.app/payment";
 const Payments = () => {
@@ -36,6 +37,11 @@ const Payments = () => {
   }, []);
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       {/* <AdminNavbar /> */}
       <Container>
         {localStorage.getItem("currentAdmin") === null ||

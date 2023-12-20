@@ -8,6 +8,7 @@ import Img6 from "../assets/img/img (6).jpg";
 import Img7 from "../assets/img/img (7).jpg";
 import Img8 from "../assets/img/img (8).jpg";
 import Img1 from "../assets/img/img (1).jpg";
+import { ScrollRestoration } from "react-router-dom";
 
 const Careers = () => {
   useEffect(() => {
@@ -60,6 +61,11 @@ const Careers = () => {
 
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       <Navbar />
       <section
         className="hero pt-4 section pb-0 mb-0"

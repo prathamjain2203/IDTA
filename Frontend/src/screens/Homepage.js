@@ -6,6 +6,7 @@ import Img1 from "../assets/img/img (1).jpg";
 import Img2 from "../assets/img/img (2).jpg";
 import { toast } from "react-toastify";
 import StaticExample from "../components/commons/Modal/Modal";
+import { ScrollRestoration } from "react-router-dom";
 
 const Homepage = () => {
   const [labName, setLabName] = useState("");
@@ -56,6 +57,11 @@ const Homepage = () => {
 
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       <Navbar />
       <StaticExample />
       <section

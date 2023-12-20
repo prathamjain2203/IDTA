@@ -8,6 +8,7 @@ import board1 from "../assets/img/board1";
 import board2 from "../assets/img/board2";
 import board3 from "../assets/img/board3";
 import board4 from "../assets/img/board4";
+import { ScrollRestoration } from "react-router-dom";
 
 const Images = [board1, board2, board3, board4];
 const Card = ({ item, image }) => {
@@ -77,6 +78,11 @@ const AboutTeam = () => {
   }, []);
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       <Navbar />
       <section className="pt-4 section pb-0" id="about">
         <div style={{ padding: "100px" }} className="row director-container">

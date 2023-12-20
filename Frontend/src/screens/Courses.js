@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 import { BoxArrowUpRight } from "react-bootstrap-icons";
 import CoursesAvailable from "../lib/CoursesAvailable";
 import { toast } from "react-toastify";
@@ -29,6 +29,11 @@ const Courses = () => {
 
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       <Navbar />
       <Container>
         <section className="about pt-5 mt-5 section" id="about">

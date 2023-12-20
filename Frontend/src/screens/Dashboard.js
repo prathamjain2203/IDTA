@@ -5,7 +5,7 @@ import Navbar from "../components/commons/Navbar";
 import Users from "../lib/Users";
 import MembershipPackage from "../lib/MembershipPackage";
 import CoursesAvailable from "../lib/CoursesAvailable";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 import QrCode from "../assets/img/phonepay-qr-code.png";
 import { toast } from "react-toastify";
 
@@ -22,7 +22,7 @@ const Dashboard = () => {
       })
       .catch((error) => {
         console.log("Error logging in:", error);
-      toast.error("Error logging in:" + error);
+        toast.error("Error logging in:" + error);
       });
   };
 
@@ -112,6 +112,11 @@ const Dashboard = () => {
 
   return (
     <div>
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          return location.pathname;
+        }}
+      />
       <Navbar />
       <Container>
         {localStorage.getItem("currentUser") === null ||
