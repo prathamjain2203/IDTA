@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
-import AboutTeamImg1 from "../assets/img/about-img-1.png";
+import AboutTeamImg1 from "../assets/img/about-img-1.jpeg";
 import AboutTeamImg2 from "../assets/img/about-img-2.png";
 import AboutTeamImg3 from "../assets/img/about-img-3.png";
 import vision2 from "../assets/img/vision2.jpg";

@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 // import useRazorpay from "react-razorpay";
-import { ScrollRestoration, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import {
+  ScrollRestoration,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
 import MembershipPackage from "../lib/MembershipPackage";
@@ -546,12 +551,12 @@ const MemberForm = () => {
                       >
                         Dental Laboratory Assistant
                       </option>
-                      <option
+                      {/* <option
                         style={{ background: "#000000" }}
                         value="Trade Professional"
                       >
                         Trade Professional
-                      </option>
+                      </option> */}
                       <option
                         style={{ background: "#000000" }}
                         value="Master Dental Technician"
@@ -692,8 +697,19 @@ const MemberForm = () => {
                       onChange={(e) => setRegistrationDate(e.target.value)}
                     />
                   </div>
-                  <div className="mb-3">
-                    <input id="terms" type={"checkbox"} />
+                  <div
+                    className="mb-3"
+                    style={{
+                      display: "flex",
+                      gap: "5px",
+                      alignItems: "start",
+                    }}
+                  >
+                    <input
+                      style={{ marginTop: "5px" }}
+                      id="terms"
+                      type={"checkbox"}
+                    />
                     <label for="terms" className="mb-2">
                       Are you registered with the IDTA?
                     </label>
@@ -702,8 +718,18 @@ const MemberForm = () => {
               </div>
               <div>
                 <h2>Terms and Conditions</h2>
-                <div>
-                  <input id="terms1" type={"checkbox"} />
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "5px",
+                    alignItems: "start",
+                  }}
+                >
+                  <input
+                    style={{ marginTop: "5px" }}
+                    id="terms1"
+                    type={"checkbox"}
+                  />
                   <label
                     style={{ marginLeft: "5px" }}
                     for="terms1"
@@ -714,8 +740,18 @@ const MemberForm = () => {
                     declaring that u am a dental laboratory professional.
                   </label>
                 </div>
-                <div>
-                  <input id="terms2" type={"checkbox"} />
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "5px",
+                    alignItems: "start",
+                  }}
+                >
+                  <input
+                    style={{ marginTop: "5px" }}
+                    id="terms2"
+                    type={"checkbox"}
+                  />
                   <label
                     style={{ marginLeft: "5px" }}
                     for="terms2"
@@ -727,8 +763,18 @@ const MemberForm = () => {
                     experience and Training courses for future participants.
                   </label>
                 </div>
-                <div>
-                  <input id="terms3" type={"checkbox"} />
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "5px",
+                    alignItems: "start",
+                  }}
+                >
+                  <input
+                    style={{ marginTop: "5px" }}
+                    id="terms3"
+                    type={"checkbox"}
+                  />
                   <label
                     style={{ marginLeft: "5px" }}
                     for="terms4"

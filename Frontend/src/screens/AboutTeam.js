@@ -9,7 +9,11 @@ import board2 from "../assets/img/board2";
 import board3 from "../assets/img/board3";
 import board4 from "../assets/img/board4";
 import { ScrollRestoration } from "react-router-dom";
+import image1 from "../assets/image1.png";
+import image2 from "../assets/image2.png";
+import image3 from "../assets/image3.jpeg";
 
+const images = [image1, image2, image3];
 const Images = [board1, board2, board3, board4];
 const Card = ({ item, image }) => {
   return (
@@ -89,7 +93,7 @@ const AboutTeam = () => {
           <h2 className="board-title">Board of Directors</h2>
           {TeamData?.map((teamItem, index) => (
             <div key={index} className="col-md-8 col-lg-6 col-xl-6 my-3">
-              <Card image={Images?.[index]} item={teamItem} />
+              <Card image={images?.[index]} item={teamItem} />
             </div>
 
             // <div className="row mt-5 m-0" key={index}>

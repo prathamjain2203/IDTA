@@ -49,7 +49,7 @@ const Services = () => {
                       {serviceItem.url === "/commingsoon" ? (
                         <a
                           className="text-decoration-none"
-                          to={"/"}
+                          href={"/"}
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         >

@@ -3,10 +3,15 @@ import Navbar from "../components/commons/Navbar";
 import Footer from "../components/commons/Footer";
 import ContactForm from "../lib/ContactForm";
 import Img1 from "../assets/img/img (1).jpg";
+import homelast from "../assets/img/homelast.webp";
 import Img2 from "../assets/img/img (2).jpg";
 import { toast } from "react-toastify";
 import StaticExample from "../components/commons/Modal/Modal";
 import { ScrollRestoration } from "react-router-dom";
+import banner1 from "../assets/img/banner1.png";
+import banner2 from "../assets/img/banner2.png";
+import banner3 from "../assets/img/banner3.png";
+import banner4 from "../assets/img/banner4.png";
 
 const Homepage = () => {
   const [labName, setLabName] = useState("");
@@ -91,12 +96,24 @@ const Homepage = () => {
                   data-bs-slide-to="1"
                   aria-label="Slide 2"
                 ></button>
+                 <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+                 <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="3"
+                  aria-label="Slide 4"
+                ></button>
               </div>
               <div className="carousel-inner w-100 h-100">
                 <div
                   className="carousel-item active w-100 h-100"
                   style={{
-                    backgroundImage: `url("https://maryj.in/banner.jpeg")`,
+                    backgroundImage: `url(${banner1})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -113,7 +130,7 @@ const Homepage = () => {
                           fontSize: "22px",
                         }}
                       >
-                        SAMPLE TEST 2
+                        {/* SAMPLE TEST 2 */}
                       </p>
                     </div>
                   </div>
@@ -121,7 +138,7 @@ const Homepage = () => {
                 <div
                   className="carousel-item w-100 h-100"
                   style={{
-                    backgroundImage: `url("https://www.midtowndentalcareassociates.com/wp-content/uploads/tech-800-Dec2018-920x613.jpg")`,
+                    backgroundImage: `url(${banner4})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -138,7 +155,57 @@ const Homepage = () => {
                           fontSize: "22px",
                         }}
                       >
-                        SAMPLE TEST
+                        {/* SAMPLE TEST 2 */}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="carousel-item w-100 h-100"
+                  style={{
+                    backgroundImage: `url(${banner3})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <div
+                    className="text-center h-100 w-100 p-2 p-md-5 p-lg-5 p-xl-5 d-flex align-items-center"
+                    style={{ background: "rgba(0, 0, 0, 0.6)" }}
+                  >
+                    <div className="container py-5 d-flex align-items-center justify-content-center">
+                      <p
+                        className="mt-3"
+                        style={{
+                          fontSize: "22px",
+                        }}
+                      >
+                        {/* SAMPLE TEST 2 */}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="carousel-item w-100 h-100"
+                  style={{
+                    backgroundImage: `url(${banner2})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <div
+                    className="text-center h-100 w-100 p-2 p-md-5 p-lg-5 p-xl-5 d-flex align-items-center"
+                    style={{ background: "rgba(0, 0, 0, 0.6)" }}
+                  >
+                    <div className="container py-5 d-flex align-items-center justify-content-center">
+                      <p
+                        className="mt-3"
+                        style={{
+                          fontSize: "22px",
+                        }}
+                      >
+                        {/* SAMPLE TEST */}
                       </p>
                     </div>
                   </div>
@@ -345,7 +412,7 @@ const Homepage = () => {
           >
             <img
               className="img-fluid w-100 h-100 py-0 my-0"
-              src={Img1}
+              src={homelast}
               alt="logo"
               style={{
                 maxWidth: "100%",

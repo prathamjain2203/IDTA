@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { IoMdClose } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 function Example() {
   const [show, setShow] = useState(true);
-
+  const navigate = useNavigate();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -16,7 +17,9 @@ function Example() {
     <>
       <Modal centered show={show} onHide={handleClose}>
         <Modal.Body
+          onClick={() => navigate("/membership")}
           style={{
+            cursor: "pointer",
             minHeight: "300px",
             display: "flex",
             alignItems: "center",

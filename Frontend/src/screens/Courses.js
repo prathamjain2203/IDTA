@@ -6,6 +6,9 @@ import { Link, ScrollRestoration } from "react-router-dom";
 import { BoxArrowUpRight } from "react-bootstrap-icons";
 import CoursesAvailable from "../lib/CoursesAvailable";
 import { toast } from "react-toastify";
+import course1 from "../assets/course1.jpeg";
+import course2 from "../assets/course2.jpeg";
+import course3 from "../assets/course3.jpeg";
 
 const Courses = () => {
   const [courseData, setCourseData] = useState([]);
@@ -37,12 +40,85 @@ const Courses = () => {
       <Navbar />
       <Container>
         <section className="about pt-5 mt-5 section" id="about">
-          <h3 style={{ textAlign: "center" }}>Coming Soon</h3>
+          {/* <h3 style={{ textAlign: "center" }}>Coming Soon</h3> */}
+          <div style={{ width: "80%", margin: "auto" }}>
+            <div className="row">
+              <a
+                target="_blank"
+                href="https://forms.gle/BZr5cH7ib9dHuvcQ7"
+                className="col-md-6 col-lg-6 col-xl-6 my-2"
+              >
+                <div
+                  className="card card-body bg-light text-dark text-center service-card"
+                  style={{
+                    minHeight: "400px",
+                  }}
+                >
+                  <img
+                    className="img-fluid mx-auto w-100 mb-3"
+                    style={{ maxWidth: "400px" }}
+                    src={course1}
+                    alt="logo"
+                  />
+                  <p className="my-0 text-start" style={{ fontWeight: "bold" }}>
+                    On-line. Occlusal Veneers with the Thinpress Technique
+                  </p>
+                  <p className="my-0 text-start">By August Bruguera</p>
+                </div>
+              </a>
+              <a
+                target="_blank"
+                href="https://forms.gle/BZr5cH7ib9dHuvcQ7"
+                className="col-md-6 col-lg-6 col-xl-6 my-2"
+              >
+                <div
+                  className="card card-body bg-light text-dark text-center service-card"
+                  style={{
+                    minHeight: "400px",
+                  }}
+                >
+                  <img
+                    className="img-fluid mx-auto w-100 mb-3"
+                    src={course2}
+                    alt="logo"
+                    style={{ maxWidth: "400px" }}
+                  />
+                  <p className="my-0 text-start" style={{ fontWeight: "bold" }}>
+                    On-line. Stratification in a lithium disilicate case.
+                  </p>
+                  <p className="my-0 text-start">By August Bruguera</p>
+                </div>
+              </a>
+              <a
+                target="_blank"
+                href="https://forms.gle/BZr5cH7ib9dHuvcQ7"
+                className="col-md-6 col-lg-6 col-xl-6 my-2"
+              >
+                <div
+                  className="card card-body bg-light text-dark text-center service-card"
+                  style={{
+                    minHeight: "400px",
+                  }}
+                >
+                  <img
+                    className="img-fluid mx-auto w-100 mb-3"
+                    src={course3}
+                    alt="logo"
+                    style={{ maxWidth: "400px" }}
+                  />
+                  <p className="my-0 text-start" style={{ fontWeight: "bold" }}>
+                    On-line. Morphology and Diagnostic Waxing
+                  </p>
+                  <p className="my-0 text-start">By August Bruguera</p>
+                </div>
+              </a>
+            </div>
+          </div>
           {/* <div className="row mt-5">
             <h1 className="fw-bold">Currently Available Courses</h1>
             <a
-              className="text-light text-decoration-none mb-3"
-              href="/dashboard"
+            className="text-light text-decoration-none mb-3"
+            href="/dashboard"
             >
               Show My Purchased Courses &nbsp;
               <BoxArrowUpRight />
