@@ -48,12 +48,12 @@ const Courses = () => {
                 <div
                   className="card card-body bg-light text-dark text-center service-card"
                   style={{
-                    minHeight: "400px",
+                    maxHeight: "450px",
                   }}
                 >
                   <img
                     className="img-fluid mx-auto w-100 mb-3"
-                    style={{ maxWidth: "400px", height: "300px" }}
+                    style={{ maxWidth: "400px", maxHeight: "300px" }}
                     src={course1}
                     alt="logo"
                   />
@@ -76,14 +76,14 @@ const Courses = () => {
                 <div
                   className="card card-body bg-light text-dark text-center service-card"
                   style={{
-                    minHeight: "400px",
+                    maxHeight: "450px",
                   }}
                 >
                   <img
                     className="img-fluid mx-auto w-100 mb-3"
                     src={course2}
                     alt="logo"
-                    style={{ maxWidth: "400px", height: "300px" }}
+                    style={{ maxWidth: "400px", maxHeight: "300px" }}
                   />
                   <p className="my-0 text-start" style={{ fontWeight: "bold" }}>
                     Removable prosthetics Course
@@ -104,14 +104,14 @@ const Courses = () => {
                 <div
                   className="card card-body bg-light text-dark text-center service-card"
                   style={{
-                    minHeight: "400px",
+                    maxHeight: "450px",
                   }}
                 >
                   <img
                     className="img-fluid mx-auto w-100 mb-3"
                     src={course3}
                     alt="logo"
-                    style={{ maxWidth: "400px", height: "300px" }}
+                    style={{ maxWidth: "400px", maxHeight: "300px" }}
                   />
                   <p className="my-0 text-start" style={{ fontWeight: "bold" }}>
                     Introduction to Ceramic Course{" "}
