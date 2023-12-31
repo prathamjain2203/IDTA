@@ -6,8 +6,13 @@ import { useNavigate } from "react-router-dom";
 function Example() {
   const [show, setShow] = useState(true);
   const navigate = useNavigate();
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = (e) => {
+    e.stopPropagation();
+    setShow(false);
+  };
+  const handleShow = () => {
+    setShow(true);
+  };
 
   useEffect(() => {
     handleShow();
@@ -49,17 +54,17 @@ function Example() {
               style={{ color: "black" }}
               className="d-none d-md-block d-lg-block d-xl-block"
             >
-              Indian Dental Technician Association
+              Welcome To Indian Dental Technician Association
             </span>
             <span
               style={{ color: "black" }}
-              className="d-block d-md-none d-lg-none d-xl-none"
+              className="d-block"
             >
-              IDTA
+              01-01-2024
             </span>
           </a>
           <h2 style={{ color: "black", textAlign: "center" }}>
-            Registeration is Live
+            Registration is live now
           </h2>
         </Modal.Body>
       </Modal>

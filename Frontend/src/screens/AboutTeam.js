@@ -13,7 +13,7 @@ import image1 from "../assets/image1.png";
 import image2 from "../assets/image2.png";
 import image3 from "../assets/image3.jpeg";
 
-const images = [image1, image2, image3];
+const images = [image3, image1, image2];
 const Images = [board1, board2, board3, board4];
 const Card = ({ item, image }) => {
   return (
@@ -29,7 +29,7 @@ const Card = ({ item, image }) => {
           objectFit: "contain",
         }}
       >
-        <img style={{ width: "100%", height: "100%" }} src={image} alt="pic" />
+        <img style={{ width: "180px", height: "180px" }} src={image} alt="pic" />
       </div>
       <div>
         <p
@@ -58,14 +58,14 @@ const Card = ({ item, image }) => {
             <span>Company: </span>
             <span>{item?.company}</span>
           </div>
-          <div>
+          {/* <div>
             <span>Address: </span>
             <span>{item?.address}</span>
           </div>{" "}
           <div>
             <span>State: </span>
             <span>{item?.state}</span>
-          </div>{" "}
+          </div>{" "} */}
           <div>
             <span>Phone: </span>
             <span>{item?.phone}</span>
@@ -91,6 +91,11 @@ const AboutTeam = () => {
       <section className="pt-4 section pb-0" id="about">
         <div style={{ padding: "100px" }} className="row director-container">
           <h2 className="board-title">Board of Directors</h2>
+          <p>
+            The Board of Directors collaborates with staff and a legion of
+            volunteer committee's to execute the strategic plan and serve
+            I.D.T.A members.
+          </p>
           {TeamData?.map((teamItem, index) => (
             <div key={index} className="col-md-8 col-lg-6 col-xl-6 my-3">
               <Card image={images?.[index]} item={teamItem} />

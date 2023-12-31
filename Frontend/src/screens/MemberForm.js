@@ -368,7 +368,7 @@ const MemberForm = () => {
       <Container>
         <section className="about pt-5 mt-5 section" id="about">
           <div className="row mt-5">
-            <h1 className="fw-bold">Purchase Registration</h1>
+            <h1 className="fw-bold">Registration</h1>
             <hr />
             <div className="card card-body bg-dark mb-3">
               <h5>Plan: {membershipPlan.membershipTitle}/-</h5>

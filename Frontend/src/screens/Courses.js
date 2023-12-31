@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import Footer from "../components/commons/Footer";
 import Navbar from "../components/commons/Navbar";
-import { Link, ScrollRestoration } from "react-router-dom";
+import { Link, ScrollRestoration, useNavigate } from "react-router-dom";
 import { BoxArrowUpRight } from "react-bootstrap-icons";
 import CoursesAvailable from "../lib/CoursesAvailable";
 import { toast } from "react-toastify";
@@ -12,6 +12,7 @@ import course3 from "../assets/course3.jpeg";
 
 const Courses = () => {
   const [courseData, setCourseData] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -43,11 +44,7 @@ const Courses = () => {
           {/* <h3 style={{ textAlign: "center" }}>Coming Soon</h3> */}
           <div style={{ width: "80%", margin: "auto" }}>
             <div className="row">
-              <a
-                target="_blank"
-                href="https://forms.gle/BZr5cH7ib9dHuvcQ7"
-                className="col-md-6 col-lg-6 col-xl-6 my-2"
-              >
+              <div className="col-md-6 col-lg-6 col-xl-6 my-2">
                 <div
                   className="card card-body bg-light text-dark text-center service-card"
                   style={{
@@ -56,21 +53,26 @@ const Courses = () => {
                 >
                   <img
                     className="img-fluid mx-auto w-100 mb-3"
-                    style={{ maxWidth: "400px" }}
+                    style={{ maxWidth: "400px", height: "300px" }}
                     src={course1}
                     alt="logo"
                   />
                   <p className="my-0 text-start" style={{ fontWeight: "bold" }}>
-                    On-line. Occlusal Veneers with the Thinpress Technique
+                    Morphology. Anterior and Posterior Waxing Course
                   </p>
                   <p className="my-0 text-start">By August Bruguera</p>
+                  <Button
+                    onClick={() =>
+                      window.location.replace(
+                        "https://forms.gle/BZr5cH7ib9dHuvcQ7"
+                      )
+                    }
+                  >
+                    Enquiry
+                  </Button>
                 </div>
-              </a>
-              <a
-                target="_blank"
-                href="https://forms.gle/BZr5cH7ib9dHuvcQ7"
-                className="col-md-6 col-lg-6 col-xl-6 my-2"
-              >
+              </div>
+              <div className="col-md-6 col-lg-6 col-xl-6 my-2">
                 <div
                   className="card card-body bg-light text-dark text-center service-card"
                   style={{
@@ -81,19 +83,24 @@ const Courses = () => {
                     className="img-fluid mx-auto w-100 mb-3"
                     src={course2}
                     alt="logo"
-                    style={{ maxWidth: "400px" }}
+                    style={{ maxWidth: "400px", height: "300px" }}
                   />
                   <p className="my-0 text-start" style={{ fontWeight: "bold" }}>
-                    On-line. Stratification in a lithium disilicate case.
+                    Removable prosthetics Course
                   </p>
                   <p className="my-0 text-start">By August Bruguera</p>
+                  <Button
+                    onClick={() =>
+                      window.location.replace(
+                        "https://forms.gle/BZr5cH7ib9dHuvcQ7"
+                      )
+                    }
+                  >
+                    Enquiry
+                  </Button>
                 </div>
-              </a>
-              <a
-                target="_blank"
-                href="https://forms.gle/BZr5cH7ib9dHuvcQ7"
-                className="col-md-6 col-lg-6 col-xl-6 my-2"
-              >
+              </div>
+              <div className="col-md-6 col-lg-6 col-xl-6 my-2">
                 <div
                   className="card card-body bg-light text-dark text-center service-card"
                   style={{
@@ -104,14 +111,23 @@ const Courses = () => {
                     className="img-fluid mx-auto w-100 mb-3"
                     src={course3}
                     alt="logo"
-                    style={{ maxWidth: "400px" }}
+                    style={{ maxWidth: "400px", height: "300px" }}
                   />
                   <p className="my-0 text-start" style={{ fontWeight: "bold" }}>
-                    On-line. Morphology and Diagnostic Waxing
+                    Introduction to Ceramic Course{" "}
                   </p>
                   <p className="my-0 text-start">By August Bruguera</p>
+                  <Button
+                    onClick={() =>
+                      window.location.replace(
+                        "https://forms.gle/BZr5cH7ib9dHuvcQ7"
+                      )
+                    }
+                  >
+                    Enquiry
+                  </Button>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
           {/* <div className="row mt-5">

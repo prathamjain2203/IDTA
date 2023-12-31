@@ -12,6 +12,7 @@ import banner1 from "../assets/img/banner1.png";
 import banner2 from "../assets/img/banner2.png";
 import banner3 from "../assets/img/banner3.png";
 import banner4 from "../assets/img/banner4.png";
+import aboutIdta from "../assets/aboutidta.png";
 
 const Homepage = () => {
   const [labName, setLabName] = useState("");
@@ -96,13 +97,13 @@ const Homepage = () => {
                   data-bs-slide-to="1"
                   aria-label="Slide 2"
                 ></button>
-                 <button
+                <button
                   type="button"
                   data-bs-target="#carouselExampleCaptions"
                   data-bs-slide-to="2"
                   aria-label="Slide 3"
                 ></button>
-                 <button
+                <button
                   type="button"
                   data-bs-target="#carouselExampleCaptions"
                   data-bs-slide-to="3"
@@ -237,38 +238,58 @@ const Homepage = () => {
               </button>
             </div>
           </div>
-          <div
-            className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5"
-            style={{
-              background: "#090909",
-            }}
-          >
-            <div className="container py-5">
-              <h1 className="fw-bold">About IDTA</h1>
+          <div className="row m-0 pb-0 mb-0">
+            <div
+              className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5"
+              style={{
+                background: "#090909",
+              }}
+            >
+              <div className="container py-5">
+                <h1 className="fw-bold">About IDTA</h1>
 
-              <p>
-                The Indian Dental Technician Association is the unified voice of
-                the Dental Laboratory professionals supporting dentistry and
-                serving the public interest by promoting high standards.
-                I.D.T.A. accomplished this by providing Programs, services and
-                networking opportunities to meet the evolving technical,
-                Educational, professional and business needs of dental
-                laboratories. The Indian Dental Technician Association is a
-                Pvt.Organization for Dental Laboratory's and Dental Technicians
-                in India and we are committed to keeping member in touch with
-                what is going in Dental Technology and the wider dental arena as
-                well as facilitating our members with the tools they need to
-                stay educated and compliant. Currently the I.D.T.A has 200+
-                Members and 500+ Socially connected Members
-              </p>
+                <p>
+                  The Indian Dental Technician Association is the unified voice
+                  of the Dental Laboratory professionals supporting dentistry
+                  and serving the public interest by promoting high standards.
+                  I.D.T.A. accomplished this by providing Programs, services and
+                  networking opportunities to meet the evolving technical,
+                  Educational, professional and business needs of dental
+                  laboratories. The Indian Dental Technician Association is a
+                  Pvt.Organization for Dental Laboratory's and Dental
+                  Technicians in India and we are committed to keeping member in
+                  touch with what is going in Dental Technology and the wider
+                  dental arena as well as facilitating our members with the
+                  tools they need to stay educated and compliant. Currently the
+                  I.D.T.A has 200+ Members and 500+ Socially connected Members
+                </p>
 
-              <button
-                className="btn btn-success border-0 mx-auto px-4 shadow-none btn-lg fw-bold"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Contact Us Now
-              </button>
+                <button
+                  className="btn btn-success border-0 mx-auto px-4 shadow-none btn-lg fw-bold"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Contact Us Now
+                </button>
+              </div>
+            </div>
+            <div
+              className="col-md-6 col-lg-6 col-xl-6 my-0 p-0 my-0"
+              style={{
+                background: "#090909",
+              }}
+            >
+              <img
+                className="img-fluid w-100 h-100 py-0 my-0"
+                src={aboutIdta}
+                alt="logo"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+              />
             </div>
           </div>
         </div>
