@@ -238,7 +238,10 @@ const Homepage = () => {
               </button>
             </div>
           </div>
-          <div className="row m-0 pb-0 mb-0">
+          <div
+            className="row m-0 pb-0 mb-0"
+            style={{ flexWrap: "wrap-reverse" }}
+          >
             <div
               className="col-md-6 col-lg-6 col-xl-6 d-flex align-items-center p-2 p-md-5 p-lg-5 p-xl-5"
               style={{
