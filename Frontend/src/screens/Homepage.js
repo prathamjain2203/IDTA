@@ -277,7 +277,7 @@ const Homepage = () => {
               </div>
             </div>
             <div
-              className="col-md-6 col-lg-6 col-xl-6 my-0 p-0 my-0"
+              className="d-none d-md-block col-md-6 col-lg-6 col-xl-6 my-0 p-0 my-0"
               style={{
                 background: "#090909",
               }}
