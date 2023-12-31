@@ -51,21 +51,26 @@ function Example() {
             href="/"
           >
             <span
-              style={{ color: "black" }}
-              className="d-none d-md-block d-lg-block d-xl-block"
+              style={{ color: "black", wordBreak: "break-word" }}
+              className="d-md-block d-lg-block d-xl-block"
             >
-              Welcome To Indian Dental Technician Association
+              Welcome To Indian Dental Technician
             </span>
-            <span
-              style={{ color: "black" }}
-              className="d-block"
+            <p
+              style={{ color: "black", wordBreak: "break-word" }}
+              className="d-md-block d-lg-block d-xl-block"
             >
+              Association
+            </p>
+            <span style={{ color: "black" }} className="d-block">
               01-01-2024
             </span>
           </a>
-          <h2 style={{ color: "black", textAlign: "center" }}>
+          <span
+            style={{ fontWeight: "bold", color: "black", textAlign: "center" }}
+          >
             Registration is live now
-          </h2>
+          </span>
         </Modal.Body>
       </Modal>
     </>
